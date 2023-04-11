@@ -3,22 +3,14 @@ cadastro_div = document.getElementById( 'cadastro_div' )
 
 function ShowCad()
 {
-    login_div.style.opacity = 0.3
-
-    setTimeout( () =>
-    {
-        cadastro_div.style.top = '0'
-    }, 200 )
+    login_div.style.opacity = 0.1
+    cadastro_div.style.top = '0'
 }
 
 function HideCad()
 {
     login_div.style.opacity = 1
-
-    setTimeout( () =>
-    {
-        cadastro_div.style.top = '100%'
-    }, 200 );
+    cadastro_div.style.top = '100%'
 }
 
 function ShowPassword( e )

@@ -73,6 +73,13 @@ main {
     background-color: #cf2e2e;
 }
 
+.close-button {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+}
+
 .waves {
     position: absolute;
     overflow: hidden;
