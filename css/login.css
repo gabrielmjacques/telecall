@@ -1,3 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    position: relative;
+    overflow: hidden;
+
     min-height: 100vh;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+.form-check-input {
+    border: 1px solid black;
+}
+
+.form-check-input:checked {
+    background-color: #0170B9;
+
+    box-shadow: 0 0 5px #0170B9;
+}
+
+nav {
+    background-color: #cf2e2e;
+    position: relative;
+
+    height: 70px;
+
+    box-shadow: 0 5px 10px #00000053;
+}
+
+.logo {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+}
+
+.logo img {
+    height: 70px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+
+    width: 80%;
+    height: 100%;
+}
+
+.container-cad {
+    position: absolute;
+    overflow-y: scroll;
+
+    top: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.container-cad::-webkit-scrollbar {
+    background: white;
+    width: 7px;
+}
+
+.container-cad::-webkit-scrollbar-thumb {
+    background-color: #cf2e2e;
+}
+
+.waves {
+    position: absolute;
+    overflow: hidden;
+
+    z-index: -1;
+    left: 0;
+    right: 0;
+    bottom: -10%;
+}
+
+.wave-1 {
+    animation: wave-balance 5s ease-in-out alternate infinite;
+}
+
+.wave-2 {
+    opacity: 0.7;
+
+    animation: wave-balance 4s ease-in-out alternate infinite;
+}
+
+.wave-3 {
+    opacity: 0.6;
+
+    animation: wave-balance 3s ease-in-out alternate infinite;
+}
+
+@keyframes wave-balance {
+    to {
+        transform: translateX(-100px);
+    }
 }
