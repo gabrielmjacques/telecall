@@ -39,19 +39,42 @@
                     <form action="/">
                         <div class="form-group mb-3">
                             <label for="login_entry">Login de Usuário</label>
-                            <input class="form-control" type="text" name="login_entry" id="login_entry">
+
+                            <div class="input-group">
+                                <button class="btn btn-outline-secondary" type="button" disabled
+                                    onclick="ShowPassword(document.getElementById('new_password_entry'))">
+                                    <img src="assets/icons/user.png" alt="" width="15px">
+                                </button>
+
+                                <input class="form-control" type="text" name="login_entry" id="login_entry">
+                            </div>
+
                         </div>
+
                         <div class="form-group mb-5">
                             <label for="password-entry">Senha</label>
-                            <input class="form-control" type="password" name="password-entry" id="password-entry">
+
+                            <div class="input-group">
+                                <button class="btn btn-outline-secondary" type="button" disabled
+                                    onclick="ShowPassword(document.getElementById('new_password_entry'))">
+                                    <img src="assets/icons/password.png" alt="" width="15px">
+                                </button>
+
+                                <input class="form-control" type="password" name="password-entry" id="password-entry">
+                            </div>
+
                             <a href="" class="text-danger text-end"><small>Esqueci minha senha</small></a>
                         </div>
+
+                        <!-- Entrar -->
                         <div class="form-group mb-3">
                             <button type="submit" class="btn w-100 btn-outline-danger">Entrar na Conta</button>
                         </div>
                     </form>
 
-                    <button type="button" onclick="ShowCad()" class="btn w-100 btn-light">Quero me cadastrar!</button>
+                    <!-- Mostrar aba de cadastro -->
+                    <button type="button" onclick="ShowCad()" class="btn w-100 btn-light">Não tenho conta, quero me
+                        cadastrar!</button>
                 </div>
 
                 <!-- Tela de Cadastro -->
@@ -191,7 +214,8 @@
                         </form>
 
                         <!-- Fechar aba de cadastro -->
-                        <button type="button" onclick="HideCad()" class="btn w-100 btn-light">Já possuo conta!</button>
+                        <button type="button" onclick="HideCad()" class="btn w-100 btn-light">Já possuo conta, quero
+                            entrar!</button>
 
                     </div>
                 </div>
