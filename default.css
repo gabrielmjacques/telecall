@@ -29,18 +29,17 @@ nav {
     background-color: #cf2e2e;
     position: relative;
 
-    height: 70px;
-
     box-shadow: 0 5px 10px #00000053;
-}
-
-.logo {
-    position: absolute;
-
-    left: 0;
-    top: 0;
 }
 
 .logo img {
     height: 70px;
+}
+
+
+
+@media (max-width: 994px) {
+    .logo img {
+        height: 50px;
+    }
 }
