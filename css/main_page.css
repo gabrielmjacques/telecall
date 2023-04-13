@@ -1,3 +1,9 @@
+body {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    background-color: #f1f1f1;
+
+}
+
 .navbar-nav button,
 .navbar-nav a {
     background-color: transparent;
@@ -40,20 +46,24 @@
 }
 
 .navbar-nav .dropdown-menu a::after {
-    content: '';
+    content: '►';
+    color: #cf2e2e;
     position: absolute;
 
     width: 100%;
     height: 100%;
     left: -100%;
-    top: 0;
 
-    transition: 0.4s ease-out;
-    border-bottom: 3px solid #3d93cb;
+    transition: 0.3s;
 }
 
 .navbar-nav .dropdown-menu a:hover::after {
-    left: 0;
+    left: 2px;
+}
+
+
+.apr-container a {
+    width: 70%;
 }
 
 
@@ -69,4 +79,8 @@
         box-shadow: 0 0 10px #00000060;
     }
 
+
+    .apr-container a {
+        width: 100%;
+    }
 }

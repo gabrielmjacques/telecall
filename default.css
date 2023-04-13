@@ -6,13 +6,17 @@
 
 body {
     position: relative;
-    overflow: hidden;
 
     min-height: 100vh;
 }
 
 label {
     margin-bottom: 10px;
+}
+
+button,
+.btn {
+    font-weight: bold;
 }
 
 .form-check-input {
