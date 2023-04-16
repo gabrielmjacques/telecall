@@ -10,6 +10,16 @@ body {
     min-height: 100vh;
 }
 
+section {
+    margin-bottom: 70px;
+}
+
+p {
+    font-weight: bold;
+    color: #000000c5;
+    font-size: 1.3em;
+}
+
 label {
     margin-bottom: 10px;
 }
