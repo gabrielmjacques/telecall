@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="default.css">
 
     <!-- CSS Login -->
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="styles/login.css">
 
 </head>
 
@@ -44,8 +44,7 @@
                             <label for="login_entry">Login de Usuário</label>
 
                             <div class="input-group">
-                                <button class="btn btn-outline-secondary" type="button" disabled
-                                    onclick="ShowPassword(document.getElementById('new_password_entry'))">
+                                <button class="btn btn-outline-secondary" type="button" disabled>
                                     <img src="assets/icons/user.png" alt="" width="15px">
                                 </button>
 
@@ -58,18 +57,23 @@
                             <label for="password-entry">Senha</label>
 
                             <div class="input-group">
-                                <button class="btn btn-outline-secondary" type="button" disabled
-                                    onclick="ShowPassword(document.getElementById('new_password_entry'))">
+                                <button class="btn btn-outline-secondary" type="button" disabled>
                                     <img src="assets/icons/password.png" alt="" width="15px">
                                 </button>
 
-                                <input class="form-control" type="password" name="password-entry" id="password-entry">
+                                <input class="form-control" type="password" name="password" id="password_entry"
+                                    required>
+
+                                <button class="btn btn-outline-secondary" type="button"
+                                    onclick="ShowPassword(document.getElementById('password_entry'))">
+                                    <img src="assets/icons/show.png" alt="" width="15px">
+                                </button>
                             </div>
 
                             <a href="" class="text-danger text-end"><small>Esqueci minha senha</small></a>
                         </div>
 
-                        <!-- Entrar -->
+                        <!-- Botão Entrar -->
                         <div class="form-group mb-3">
                             <a href="index.html" type="submit" class="btn w-100 btn-outline-danger">Entrar na
                                 Conta</a>
@@ -265,30 +269,24 @@
     <!-- Script de validação de formulário -->
     <script>
 
-        function CheckName( e )
-        {
+        function CheckName( e ) {
             val_name = document.getElementById( 'val-name' )
 
-            if ( e.value.length < 15 || e.value.length > 60 )
-            {
+            if ( e.value.length < 15 || e.value.length > 60 ) {
                 val_name.style.display = 'inline'
                 val_name.innerText = 'O campo nome deve ter no mínimo 15 caracteres e no máximo 60 caracteres alfabéticos.'
-            } else
-            {
+            } else {
                 val_name.style.display = 'none'
             }
         }
 
-        function CheckLogin( e )
-        {
+        function CheckLogin( e ) {
             val_login = document.getElementById( 'val-login' )
 
-            if ( e.value.length != 6 )
-            {
+            if ( e.value.length != 6 ) {
                 val_login.style.display = 'inline'
                 val_login.innerText = 'O campo Login deve ser alfabético e ter exatamente 6 caracteres alfabéticos.'
-            } else
-            {
+            } else {
                 val_login.style.display = 'none'
             }
         }

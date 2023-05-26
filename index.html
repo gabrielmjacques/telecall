@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="default.css">
 
     <!-- CSS Main Page -->
-    <link rel="stylesheet" href="css/main_page.css">
+    <link rel="stylesheet" href="styles/main_page.css">
 
 </head>
 
@@ -96,7 +96,7 @@
                                 Mobilidade
                             </button>
                             <ul class="dropdown-menu dropdown-menu-sm-end">
-                                <li><a class="dropdown-item" href="https://telecall.com.br/celular-empresarial/">Celular
+                                <li><a class="dropdown-item" href="https://telecall.com/celular-empresarial/">Celular
                                         Empresarial</a></li>
                                 <li><a class="dropdown-item" href="https://telecall.com/mvna-e-2/">MVNA/E</a></li>
                             </ul>
@@ -153,24 +153,74 @@
 
                 <div class="row">
                     <a href="login.html"><button class="btn btn-danger mb-2">Crie sua Conta</button></a>
-                    <a href=""><button class="btn btn-danger">Fale com Nosso Time</button></a>
+
+                    <div>
+                        <button type="button" class="btn btn-danger mx-auto" data-bs-toggle="modal"
+                            data-bs-target="#contactModal">
+                            Fale Nossos Especialistas
+                        </button>
+                    </div>
                 </div>
             </div>
 
             <img class="apr-wave" src="assets/waves/apr_wave.svg" alt="">
 
+            <!-- Modal para Contato -->
+            <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Fale Conosco</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body d-flex flex-column gap-4">
+
+                            <div class="form-group">
+                                <label for="nomeCompleto">Nome Completo</label>
+                                <input type="text" class="form-control" id="nomeCompleto"
+                                    placeholder="Digite seu nome completo">
+                            </div>
+
+                            <!-- Campo Email -->
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+                            </div>
+
+                            <!-- Campo Assunto -->
+                            <div class="form-group">
+                                <label for="assunto">Assunto</label>
+                                <input type="text" class="form-control" id="assunto" placeholder="Digite o assunto">
+                            </div>
+
+                            <!-- Campo Mensagem -->
+                            <div class="form-group">
+                                <label for="mensagem">Mensagem</label>
+                                <textarea class="form-control" id="mensagem"
+                                    placeholder="Digite sua mensagem"></textarea>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            <button type="button" class="btn btn-danger">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
+        <!-- Seção de com cards das soluções -->
         <section class="row resources-container">
-
             <div class="col-md-10 col-sm-12 mx-auto">
-
                 <div class="row">
                     <h3 class="section-title">Nossas Soluções</h3>
                 </div>
 
                 <div class="row d-flex justify-content-center p-2 gap-4">
-                    <div class="card">
+                    <div class="card solu-card">
                         <img src="assets/icons/2fa.svg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">2FA</h5>
@@ -179,7 +229,7 @@
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card solu-card">
                         <img src="assets/icons/nummask.svg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Número Máscara</h5>
@@ -188,7 +238,7 @@
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card solu-card">
                         <img src="assets/icons/verify.svg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Google Verified Calls</h5>
@@ -198,7 +248,7 @@
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card solu-card">
                         <img src="assets/icons/smsprog.svg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">SMS Programável</h5>
@@ -209,9 +259,7 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </section>
 
     </main>

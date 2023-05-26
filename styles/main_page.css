@@ -31,9 +31,10 @@ body {
 }
 
 .navbar-nav .dropdown-menu {
-    background-color: #ffffffb7;
+    background-color: #ffffffcc;
     box-shadow: 0 0 10px #00000060;
 
+    backdrop-filter: blur(3px);
     animation: dropdown-menu-show 0.3s forwards;
 }
 
@@ -54,28 +55,14 @@ body {
     overflow: hidden;
 
     font-size: 0.8em;
-    transition: 0.5s;
+    transition: 200ms;
 }
 
 .navbar-nav .dropdown-menu a:hover {
-    background-color: inherit;
+    background-color: #cf2e2e;
+    color: white;
 }
 
-.navbar-nav .dropdown-menu a::after {
-    content: '►';
-    color: #cf2e2e;
-    position: absolute;
-
-    width: 100%;
-    height: 100%;
-    left: -100%;
-
-    transition: 0.3s;
-}
-
-.navbar-nav .dropdown-menu a:hover::after {
-    left: 2px;
-}
 
 
 .section-title {
@@ -126,7 +113,11 @@ body {
     width: 70%;
 }
 
-.card {
+.apr-container #contactModal {
+    backdrop-filter: blur(3px);
+}
+
+.solu-card {
     overflow: hidden;
 
     width: 18em;
@@ -137,24 +128,14 @@ body {
     box-shadow: 0 0 10px #00000039;
 }
 
-.card:hover {
+.solu-card:hover {
     transform: scale(1.03);
 }
 
-.card img {
+.solu-card img {
     margin: auto;
 
     width: 70%;
-}
-
-@keyframes a {
-    from {
-        stroke-dashoffset: 1000;
-    }
-
-    to {
-        stroke-dashoffset: 0;
-    }
 }
 
 .card-title {

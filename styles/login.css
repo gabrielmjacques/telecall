@@ -1,3 +1,7 @@
+body {
+    background-image: url('../assets/login/bg-texture.png');
+}
+
 .container-cad {
     position: absolute;
     overflow-y: scroll;
@@ -6,6 +10,8 @@
     bottom: 0;
     left: 0;
     right: 0;
+
+    transition-duration: 1s;
 }
 
 .val-span {
