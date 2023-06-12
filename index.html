@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-bs-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,7 @@
 
 </head>
 
-<body>
+<body onload="LoadData()">
 
     <nav class="navbar navbar-expand-lg  navbar-dark p-0">
         <div class="container-fluid p-0">
@@ -125,12 +125,56 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item" id="profile-dropdown">
+
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <span id="profile_login"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-sm-end px-1">
+                                <li>
+                                    <button class="dropdown-item" onclick="Logoff()">Desconectar</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <main class="container-fluid">
+
+        <!-- Modal de Acessibilidade -->
+        <button class="accessibility-menu" data-bs-toggle="modal" data-bs-target="#accessbilityModal">
+            <img src="assets/icons/accessibility.png" alt="">
+        </button>
+
+        <div class="modal fade" id="accessbilityModal" tabindex="-1" aria-labelledby="accessbilityModal"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Menu de Acessibilidade</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex flex-column gap-4">
+
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="theme_switch"
+                                onclick="ChangeTheme()">
+                            <label class="form-check-label" for="theme_switch">Modo
+                                Escuro</label>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Seção de apresentação -->
         <section class="row apr-container">
@@ -151,8 +195,9 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <a href="login.html"><button class="btn btn-danger mb-2">Crie sua Conta</button></a>
+                <div class="row d-flex gap-2">
+                    <a href="login.html" id="create_account_btn"><button class="btn btn-danger">Crie sua
+                            Conta</button></a>
 
                     <div>
                         <button type="button" class="btn btn-danger mx-auto" data-bs-toggle="modal"
@@ -160,63 +205,89 @@
                             Fale Nossos Especialistas
                         </button>
                     </div>
+
+                    <a href="https://telecall.com/faq/"><button class="btn btn-danger">FAQ</button></a>
                 </div>
             </div>
 
             <img class="apr-wave" src="assets/main_page/apr_wave.svg" alt="">
 
             <!-- Modal para Contato -->
-            <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModal" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="exampleModalLabel">Fale Conosco</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body d-flex flex-column gap-4">
-
-                            <div class="form-group">
-                                <label for="nomeCompleto">Nome Completo</label>
-                                <input type="text" class="form-control" id="nomeCompleto"
-                                    placeholder="Digite seu nome completo">
+                        <form class="needs-validation" novalidate>
+                            <div class="modal-body d-flex flex-column gap-4">
+                                <!-- Nome Completo -->
+                                <div class="form-group">
+                                    <label for="name">Nome Completo</label>
+                                    <input type="text" class="form-control" id="name" name="name"
+                                        placeholder="Digite seu nome completo" required>
+                                </div>
+                                <!-- Campo Email -->
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="Digite seu email" required>
+                                </div>
+                                <!-- Campo Assunto -->
+                                <div class="form-group">
+                                    <label for="subject">Assunto</label>
+                                    <input type="text" class="form-control" id="subject" name="subject"
+                                        placeholder="Digite o assunto" required>
+                                </div>
+                                <!-- Campo Mensagem -->
+                                <div class="form-group">
+                                    <label for="message">Mensagem</label>
+                                    <textarea class="form-control" id="message" name="message"
+                                        placeholder="Digite sua mensagem" required></textarea>
+                                </div>
                             </div>
-
-                            <!-- Campo Email -->
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                <button type="submit" class="btn btn-danger">Enviar</button>
                             </div>
-
-                            <!-- Campo Assunto -->
-                            <div class="form-group">
-                                <label for="assunto">Assunto</label>
-                                <input type="text" class="form-control" id="assunto" placeholder="Digite o assunto">
-                            </div>
-
-                            <!-- Campo Mensagem -->
-                            <div class="form-group">
-                                <label for="mensagem">Mensagem</label>
-                                <textarea class="form-control" id="mensagem"
-                                    placeholder="Digite sua mensagem"></textarea>
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                            <button type="button" class="btn btn-danger">Enviar</button>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
 
         </section>
 
-        <!-- Seção de com cards das soluções -->
-        <section class="row resources-container">
+        <!-- Seção Sobre o CPaaS-->
+        <section class="row about-cpaas">
             <div class="col-md-10 col-sm-12 mx-auto">
                 <div class="row">
-                    <h3 class="section-title">Nossas Soluções</h3>
+                    <h1 class="section-title">Você sabe o que é CPaaS?</h1>
+                </div>
+
+                <div class="row d-flex justify-content-center gap-5">
+                    <div class="col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
+                        <h4>
+                            <strong class="text-danger">CPaaS</strong> (Comunicação como Serviço) é uma solução de
+                            software que permite aos
+                            desenvolvedores
+                            integrar diferentes tipos de comunicação, como voz, chamadas de vídeo e mensagens de texto
+                            SMS, em seus aplicativos. Através de APIs que se conectam à plataforma CPaaS, as empresas
+                            podem expandir suas ofertas sem a necessidade de investir em hardware ou software adicional.
+                        </h4>
+                    </div>
+                    <div class="col-md-4 col-sm-12 d-flex justify-content-center align-items-center">
+                        <img src="assets/main_page/about.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção com cards das soluções -->
+        <section class="row solutions-cards">
+            <div class="col-md-10 col-sm-12 mx-auto">
+                <div class="row">
+                    <h1 class="section-title">Nossas Soluções</h1>
                 </div>
 
                 <div class="row d-flex justify-content-center p-2 gap-4">
@@ -268,6 +339,37 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
+
+    <!-- JQuery -->
+    <script defer src="js/jquery.js"></script>
+
+    <!-- Javascript Padrão -->
+    <script defer src="js/default.js"></script>
+
+    <!-- Javascript Externo da Página -->
+    <script src="js/main_page.js"></script>
+
+    <!-- Validação do Bootstrap -->
+    <script defer>
+        ( () => {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll( '.needs-validation' )
+
+            // Loop over them and prevent submission
+            Array.from( forms ).forEach( form => {
+                form.addEventListener( 'submit', event => {
+                    if ( !form.checkValidity() ) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add( 'was-validated' )
+                }, false )
+            } )
+        } )()
+    </script>
 
 </body>
 

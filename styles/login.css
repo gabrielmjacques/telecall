@@ -1,5 +1,7 @@
 body {
     background-image: url('../assets/login/bg-texture.png');
+    overflow-y: hidden;
+
     background-size: 30px;
 }
 

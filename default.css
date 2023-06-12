@@ -1,13 +1,22 @@
 * {
+    box-sizing: border-box;
+
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
     position: relative;
 
     min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #a02525;
 }
 
 section {
@@ -24,9 +33,32 @@ button,
 }
 
 
+.accessibility-menu {
+    background-color: #cf2e2e;
+    position: fixed;
+    border: none;
+
+    z-index: 3;
+    right: 30px;
+    bottom: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition-duration: .3s;
+    box-shadow: 3px 3px 10px #00000081;
+}
+
+.accessibility-menu:hover {
+    transform: scale(1.2);
+}
+
+.accessibility-menu img {
+    width: 80%;
+}
 
 .navbar-nav button,
-.navbar-nav a {
+.navbar-nav a,
+.navbar-nav .dropdown-item {
     background-color: transparent;
     border: none;
     font-weight: bold;
@@ -68,19 +100,20 @@ button,
     }
 }
 
-.navbar-nav .dropdown-menu a {
+.navbar-nav .dropdown-menu .dropdown-item {
     position: relative;
     overflow: hidden;
+    color: black;
 
     font-size: 0.8em;
     transition: 0.5s;
 }
 
-.navbar-nav .dropdown-menu a:hover {
+.navbar-nav .dropdown-menu .dropdown-item:hover {
     background-color: inherit;
 }
 
-.navbar-nav .dropdown-menu a::after {
+.navbar-nav .dropdown-menu .dropdown-item::after {
     content: '►';
     color: #cf2e2e;
     position: absolute;
@@ -92,7 +125,7 @@ button,
     transition: 0.3s;
 }
 
-.navbar-nav .dropdown-menu a:hover::after {
+.navbar-nav .dropdown-menu .dropdown-item:hover::after {
     left: 2px;
 }
 
@@ -122,7 +155,7 @@ nav {
 }
 
 .navbar-nav button,
-.navbar-nav a {
+.navbar-nav .dropdown-item {
     border: none;
 }
 
@@ -163,7 +196,7 @@ nav {
     }
 }
 
-.navbar-nav .dropdown-menu a {
+.navbar-nav .dropdown-menu .dropdown-item {
     position: relative;
     overflow: hidden;
     background-color: transparent;
@@ -173,7 +206,7 @@ nav {
     transition: 200ms;
 }
 
-.navbar-nav .dropdown-menu a:hover {
+.navbar-nav .dropdown-menu .dropdown-item:hover {
     background-color: #cf2e2e;
     color: white;
 }
@@ -196,7 +229,7 @@ nav {
         border-bottom: none;
     }
 
-    .navbar-nav .dropdown-menu a {
+    .navbar-nav .dropdown-menu .dropdown-item {
         background-color: #00000015;
         width: 100vw;
         color: white;

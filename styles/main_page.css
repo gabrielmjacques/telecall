@@ -8,7 +8,6 @@ body {
 
 .section-title {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: auto;
     font-weight: bold;
     width: fit-content;
 
@@ -59,10 +58,16 @@ body {
     backdrop-filter: blur(3px);
 }
 
+.about-cpaas img {
+    max-width: 400px;
+
+    filter: drop-shadow(0 0 10px #ff000081);
+}
+
 .solu-card {
     overflow: hidden;
 
-    width: 18em;
+    width: 17em;
     border-radius: 20px;
     margin-bottom: 30px;
     transition-duration: 0.5s;
