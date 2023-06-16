@@ -75,5 +75,6 @@ body {
 @keyframes wave-balance {
     to {
         transform: translateX(-100px);
+        transform: translateY(-10px);
     }
 }

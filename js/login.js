@@ -54,7 +54,7 @@ function Login() {
     const login_entry = $( "#login_entry" )
 
     localStorage.setItem( "user", login_entry.val() )
-    window.location.replace( "/index.html" )
+    window.location.replace( "index.html" )
 }
 
 // Máscaras
