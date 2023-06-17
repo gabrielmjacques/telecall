@@ -1,4 +1,24 @@
-$( document ).ready( () => {
+function LoadData() {
+    const profile_dropdown = $( "#profile-dropdown" )
+    const profile_login = $( "#profile_login" )
+    const create_account_btn = $( "#create_account_btn" )
+
+    const obj_user = JSON.parse( localStorage.getItem( "user_cad" ) )
+
+    profile_dropdown.css( "display", "block" )
+    create_account_btn.css( "display", "none" )
+    profile_login.text( obj_user.new_login )
+
+    // if ( isAuth() ) {
+
+
+    // } else {
+    //     profile_dropdown.css( "display", "none" )
+    //     create_account_btn.css( "display", "block" )
+    // }
+}
+
+function LoadStyle() {
     const theme = localStorage.getItem( "theme" )
     const font_size = localStorage.getItem( "font_size" )
 
@@ -19,7 +39,12 @@ $( document ).ready( () => {
         $( "body" ).get( 0 ).style.setProperty( "--p-size", font_size - 0.4 + "em" )
         $( "body" ).get( 0 ).style.setProperty( "--feedback-size", font_size - 0.6 + "em" )
     }
-} )
+}
+
+function Logoff() {
+    localStorage.setItem( "isAuth", false )
+    window.location.reload()
+}
 
 function ChangeTheme() {
     if ( localStorage.getItem( "theme" ) == "dark" ) {
@@ -36,3 +61,10 @@ function ChangeFontSize( val ) {
 
     window.location.reload()
 }
+
+$( document ).ready( () => {
+    const isAuth = localStorage.getItem( "isAuth" )
+
+    if ( isAuth == "true" ) LoadData()
+    LoadStyle()
+} )

@@ -37,6 +37,13 @@ label {
     font-weight: bold;
 }
 
+.form-control:focus,
+.form-select:focus {
+    border-color: #a02525;
+    box-shadow: 0 0 0 0.2rem #cf2e2e3b;
+}
+
+
 
 .accessibility-menu {
     background-image: linear-gradient(to bottom, #de4141, #ac1f1f);
@@ -139,6 +146,7 @@ nav {
     overflow: hidden;
     background-color: transparent;
     font-weight: bold;
+    color: black;
 
     font-size: 0.8em;
     transition: .2s;
@@ -147,6 +155,10 @@ nav {
 .navbar-nav .dropdown-menu .dropdown-item:hover {
     background-color: #cf2e2e;
     color: white;
+}
+
+#profile-dropdown {
+    display: none;
 }
 
 

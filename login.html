@@ -20,7 +20,6 @@
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg  navbar-dark p-0">
         <div class="container-fluid p-0">
             <a href="https://telecall.com" class="logo">
@@ -125,6 +124,20 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item" id="profile-dropdown">
+
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <span id="profile_login"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-sm-end px-1">
+                                <li>
+                                    <button class="dropdown-item" onclick="Logoff()">Desconectar</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -182,7 +195,7 @@
                     </div>
 
                     <!-- Login -->
-                    <form class="needs-validation" novalidate>
+                    <form class="needs-validation" novalidate action="index.html" onsubmit="Login()">
                         <div class="form-group mb-3">
                             <label for="login_entry">Login de Usuário</label>
 
@@ -217,21 +230,21 @@
 
 
                             <div class="mt-3">
-                                <a href="" class="text-danger"><small>Esqueci minha senha</small></a>
+                                <a href="" class="btn btn-sm"><small>Esqueci minha senha</small></a>
                             </div>
                         </div>
 
                         <!-- Botão Entrar -->
                         <div class="form-group mb-3">
-                            <button href="index.html" type="button" onclick="Login()"
-                                class="btn w-100 btn-outline-danger">
+                            <button href="index.html" class="btn w-100 btn-outline-danger">
                                 Entrar na Conta
                             </button>
                         </div>
                     </form>
 
                     <!-- Mostrar aba de cadastro -->
-                    <button type="button" class="show_cad_btn btn w-100" onclick="ShowCad()">Não tenho conta,
+                    <button type="button" class="show_cad_btn btn btn-sm w-100" onclick="ShowCad()">Não
+                        tenho conta,
                         quero me
                         cadastrar!</button>
                 </div>
@@ -250,7 +263,7 @@
                         </div>
 
 
-                        <form class="needs-validation" novalidate>
+                        <form class="needs-validation" novalidate onsubmit="Cadastro()">
 
                             <!-- Nome e Nascimento -->
                             <div class="row mb-3">
@@ -292,7 +305,7 @@
                                 <div class="col-md-4 form-group mb-3">
                                     <label for="cpf">CPF</label>
                                     <input class="form-control" type="text" name="cpf" id="cpf_entry"
-                                        placeholder="Ex. 000.000.000-00" minlength="14" required>
+                                        placeholder="Ex. 000.000.000-00" pattern="^.{14}$" required>
 
                                     <div class="invalid-feedback">CPF inválido</div>
                                 </div>
@@ -347,7 +360,7 @@
                                         required>
 
                                     <div class="invalid-feedback">
-                                        Deve conter exatamente 6 caracteres alfabéticos; <br>
+                                        Deve conter exatamente 6 caracteres alfabéticos <br>
                                     </div>
                                 </div>
                             </div>
@@ -361,8 +374,7 @@
                                     <div class="input-group">
                                         <input class="form-control" type="password" name="new_password"
                                             id="new_password_entry" placeholder="Crie sua senha"
-                                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" required
-                                            onkeyup="ConfirmPasswordValidation()">
+                                            pattern="^[a-zA-Z]{8,}$" required onkeyup="ConfirmPasswordValidation()">
 
                                         <button class="btn btn-outline-secondary" type="button"
                                             onclick="ShowPassword(document.getElementById('new_password_entry'))">
@@ -370,11 +382,7 @@
                                         </button>
 
                                         <div class="invalid-feedback">
-                                            A senha deve obedecer os seguinter critérios: <br>
-                                            Pelo menos uma letra; <br>
-                                            Pelo menos uma letra maiúscula; <br>
-                                            Pelo menos um número; <br>
-                                            No mínimo 8 caracteres
+                                            A senha deve conter no mínimo 8 caracteres alfabéticos
                                         </div>
                                     </div>
 
@@ -401,12 +409,13 @@
 
                             <!-- Criar Conta -->
                             <div class="form-group mb-3">
-                                <button type="submit" class="btn w-100 btn-outline-danger">Criar Conta</button>
+                                <button type="submit" class="btn w-100 btn-outline-danger">Criar
+                                    Conta</button>
                             </div>
                         </form>
 
                         <!-- Fechar aba de cadastro -->
-                        <button type="button" class="hide_cad_btn btn w-100" onclick="HideCad()">Já possuo
+                        <button type="button" class="hide_cad_btn btn btn-sm w-100" onclick="HideCad()">Já possuo
                             conta, quero
                             entrar!</button>
 
