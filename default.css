@@ -33,6 +33,10 @@ label {
     margin-bottom: 10px;
 }
 
+a {
+    cursor: pointer;
+}
+
 .btn {
     font-weight: bold;
 }
@@ -42,6 +46,7 @@ label {
     border-color: #a02525;
     box-shadow: 0 0 0 0.2rem #cf2e2e3b;
 }
+
 
 
 

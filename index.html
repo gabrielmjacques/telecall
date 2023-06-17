@@ -20,7 +20,6 @@
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg  navbar-dark p-0">
         <div class="container-fluid p-0">
             <a href="https://telecall.com" class="logo">
@@ -130,11 +129,11 @@
                         <div class="dropdown">
                             <button class="btn btn-sm btn-secondary dropdown-toggle" type="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                <span id="profile_login"></span>
+                                <span id="profile-login"></span>
                             </button>
-                            <ul class="dropdown-menu dropdown-menu-sm-end px-1">
+                            <ul class="dropdown-menu dropdown-menu-sm-end">
                                 <li>
-                                    <button class="dropdown-item" onclick="Logoff()">Desconectar</button>
+                                    <a class="dropdown-item" onclick="Logoff()">Desconectar</a>
                                 </li>
                             </ul>
                         </div>
@@ -203,8 +202,7 @@
                 </div>
 
                 <div class="row d-flex gap-2">
-                    <a href="login.html" id="create_account_btn"><button class="btn btn-danger">Crie sua
-                            Conta</button></a>
+                    <a href="login.html" id="create-account-btn"><button class="btn btn-danger">Fazer Login</button></a>
 
                     <div>
                         <button type="button" class="btn btn-danger mx-auto" data-bs-toggle="modal"
@@ -231,8 +229,8 @@
                             <div class="modal-body d-flex flex-column gap-4">
                                 <!-- Nome Completo -->
                                 <div class="form-group">
-                                    <label for="name">Nome Completo</label>
-                                    <input type="text" class="form-control" id="name" name="name"
+                                    <label for="modal-username">Nome Completo</label>
+                                    <input type="text" class="form-control" id="modal-username" name="modal-username"
                                         placeholder="Digite seu nome completo" required>
                                 </div>
                                 <!-- Campo Email -->

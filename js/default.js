@@ -1,21 +1,17 @@
 function LoadData() {
+    const create_account_btn = $( "#create-account-btn" )
     const profile_dropdown = $( "#profile-dropdown" )
-    const profile_login = $( "#profile_login" )
-    const create_account_btn = $( "#create_account_btn" )
+    const profile_login = $( "#profile-login" )
+    const profile_name = $( "#profile-name" )
+    const modal_username = $( "#modal-username" )
 
     const obj_user = JSON.parse( localStorage.getItem( "user_cad" ) )
 
     profile_dropdown.css( "display", "block" )
     create_account_btn.css( "display", "none" )
     profile_login.text( obj_user.new_login )
-
-    // if ( isAuth() ) {
-
-
-    // } else {
-    //     profile_dropdown.css( "display", "none" )
-    //     create_account_btn.css( "display", "block" )
-    // }
+    profile_name.text( obj_user.name )
+    modal_username.val( obj_user.name )
 }
 
 function LoadStyle() {
