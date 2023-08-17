@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $msg = 'Login efetuado com sucesso!';
             header('Location: ../index.php?msg=' . $msg);
         } else {
-            $msg = 'Senha incorreta!';
+            $msg = 'Login ou Senha incorreta!';
             header("Location: ../reglog.php?msg=$msg");
         }
     }

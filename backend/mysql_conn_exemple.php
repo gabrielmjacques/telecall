@@ -1,5 +1,6 @@
 <?php
 
+# Altere o nome do arquivo para mysql_conn.php
 # Mude os valores com base no seu banco de dados
 $servername = 'HOST';
 $username = 'USER';
