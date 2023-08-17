@@ -51,50 +51,8 @@ function DateValidation() {
     }
 }
 
-function Login() {
-    const login_entry = $( "#login_entry" )
-    const password_entry = $( "#password_entry" )
-
-    const obj_user = JSON.parse( localStorage.getItem( "user_cad" ) )
-
-    if ( login_entry.val() == obj_user.new_login && password_entry.val() == obj_user.new_password ) {
-        login_entry[ 0 ].setCustomValidity( "" )
-        password_entry[ 0 ].setCustomValidity( "" )
-        localStorage.setItem( "isAuth", true )
-        window.location.href = "index.html"
-    } else {
-        login_entry[ 0 ].setCustomValidity( "true" )
-        password_entry[ 0 ].setCustomValidity( "true" )
-    }
-}
-
-function Cadastro() {
-    const name_entry = $( "#name_entry" ).val()
-    const mom_name_entry = $( "#mom_name_entry" ).val()
-    const new_login_entry = $( "#new_login_entry" ).val()
-    const new_password_entry = $( "#new_password_entry" ).val()
-    const cpf_entry = $( "#cpf_entry" ).val()
-    const date_entry = $( "#date_entry" ).val()
-    const cel_entry = $( "#cel_entry" ).val()
-    const tel_entry = $( "#tel_entry" ).val()
-    const email_entry = $( "#email_entry" ).val()
-
-    const obj_user = {
-        "name": name_entry,
-        "mom_name": mom_name_entry,
-        "new_login": new_login_entry,
-        "new_password": new_password_entry,
-        "cpf": cpf_entry,
-        "date": date_entry,
-        "cel": cel_entry,
-        "tel": tel_entry,
-        "email": email_entry
-    }
-
-    localStorage.setItem( "user_cad", JSON.stringify( obj_user ) )
-}
-
 // Máscaras
 $( "#cpf_entry" ).mask( "000.000.000-00" );
 $( "#cel_entry" ).mask( "+55 (00) 00000-0000" );
-$( "#tel_entry" ).mask( "+55 (00) 0000-0000" );
+$( "#tel_fixo_entry" ).mask( "+55 (00) 0000-0000" );
+$( "#cep_entry" ).mask( "00000-000" );

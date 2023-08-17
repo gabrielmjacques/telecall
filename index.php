@@ -12,7 +12,7 @@
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
     <!-- CSS Padrão -->
-    <link rel="stylesheet" href="default.css">
+    <link rel="stylesheet" href="default.css?v=<?php echo time(); ?>">
 
     <!-- CSS Main Page -->
     <link rel="stylesheet" href="styles/main_page.css">
@@ -20,6 +20,12 @@
 </head>
 
 <body>
+    <?php
+    if (isset($_GET['msg'])) {
+        echo "<p class='warning'>" . $_GET['msg'] . "</p>";
+    }
+    ?>
+
     <nav class="navbar navbar-expand-lg  navbar-dark p-0">
         <div class="container-fluid p-0">
             <a href="https://telecall.com" class="logo">
@@ -202,7 +208,8 @@
                 </div>
 
                 <div class="row d-flex gap-2">
-                    <a href="login.html" id="create-account-btn"><button class="btn btn-danger">Fazer Login</button></a>
+                    <a href="reglog.php" id="create-account-btn"><button class="btn btn-danger">Fazer
+                            Login</button></a>
 
                     <div>
                         <button type="button" class="btn btn-danger mx-auto" data-bs-toggle="modal"

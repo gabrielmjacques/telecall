@@ -12,7 +12,7 @@
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
     <!-- CSS Padrão -->
-    <link rel="stylesheet" href="default.css">
+    <link rel="stylesheet" href="default.css?v=<?php echo time(); ?>">
 
     <!-- CSS Login -->
     <link rel="stylesheet" href="styles/login.css">
@@ -20,6 +20,12 @@
 </head>
 
 <body>
+    <?php
+    if (isset($_GET['msg'])) {
+        echo "<p class='warning'>" . $_GET['msg'] . "</p>";
+    }
+    ?>
+
     <nav class="navbar navbar-expand-lg  navbar-dark p-0">
         <div class="container-fluid p-0">
             <a href="https://telecall.com" class="logo">
@@ -195,8 +201,8 @@
                     </div>
 
                     <!-- Login -->
-                    <form class="needs-validation" novalidate action="index.html" onsubmit="Login()">
-                        <div class="form-group mb-3">
+                    <form class="needs-validation" novalidate action="backend/processar_login.php" method="post">
+                        <div class=" form-group mb-3">
                             <label for="login_entry">Login de Usuário</label>
 
                             <div class="input-group">
@@ -204,7 +210,7 @@
                                     <img class="icons" src="assets/icons/user.png" alt="" width="15px">
                                 </button>
 
-                                <input class="form-control" type="text" name="login_entry" id="login_entry" required>
+                                <input class="form-control" type="text" name="login" id="login_entry" required>
                             </div>
 
                         </div>
@@ -225,7 +231,7 @@
                                     onclick="ShowPassword(document.getElementById('password_entry'))">
                                     <img class="icons" src="assets/icons/show.png" alt="" width="15px">
                                 </button>
-                                <div class="invalid-feedback">Login ou senha incorretos.</div>
+                                <div class="invalid-feedback">Preencha os campos</div>
                             </div>
 
 
@@ -262,14 +268,14 @@
                             <hr>
                         </div>
 
-
-                        <form class="needs-validation" novalidate onsubmit="Cadastro()">
+                        <!-- Cadastro -->
+                        <form class="needs-validation" novalidate method="post" action="backend/processar_registro.php">
 
                             <!-- Nome e Nascimento -->
                             <div class="row mb-3">
                                 <div class="col-md-8 form-group mb-3">
-                                    <label for="name">Nome Completo</label>
-                                    <input class="form-control" type="text" name="name" id="name_entry"
+                                    <label for="fullname">Nome Completo</label>
+                                    <input class="form-control" type="text" name="fullname" id="fullname_entry"
                                         placeholder="Insira seu nome completo"
                                         pattern="^(?!.*\s$)(?!^\s)[A-Za-zÀ-ÿ\s]{10,60}$" required>
 
@@ -277,9 +283,9 @@
                                 </div>
 
                                 <div class="col-md-4 form-group">
-                                    <label for="date">Data de Nascimento</label>
-                                    <input class="form-control" type="date" name="date" id="date_entry" min="1900-01-01"
-                                        max="9999-12-12" onkeyup="DateValidation()" required>
+                                    <label for="birth_date">Data de Nascimento</label>
+                                    <input class="form-control" type="date" name="birth_date" id="birth_date_entry"
+                                        min="1900-01-01" max="9999-12-12" onkeyup="DateValidation()" required>
 
                                     <div class="invalid-feedback">Selecione uma data válida <small>
                                             (Você deve ser maior de
@@ -291,8 +297,8 @@
                             <!-- Nome Materno -->
                             <div class="row mb-4">
                                 <div class="col form-group">
-                                    <label for="mom_name">Nome Materno</label>
-                                    <input class="form-control" type="text" name="mom_name" id="mom_name_entry"
+                                    <label for="mother">Nome Materno</label>
+                                    <input class="form-control" type="text" name="mother" id="mother_entry"
                                         placeholder="Insira o nome completo de sua mãe"
                                         pattern="^(?!.*\s$)(?!^\s)[A-Za-zÀ-ÿ\s]{10,60}$" required>
 
@@ -313,7 +319,7 @@
                                 <div class="col-md-8">
                                     <label for="gender">Gênero</label>
                                     <select class="form-select" id="gender" name="gender">
-                                        <option value="masc">Masculino</option>
+                                        <option value="mas">Masculino</option>
                                         <option value="fem">Feminino</option>
                                         <option value="oth">Outro</option>
                                     </select>
@@ -331,21 +337,20 @@
                                 </div>
 
                                 <div class="col-md-6 form-group">
-                                    <label for="tel">Telefone Fixo</label>
-                                    <input class="form-control" type="text" name="tel" id="tel_entry"
+                                    <label for="tel_fixo">Telefone Fixo</label>
+                                    <input class="form-control" type="text" name="tel_fixo" id="tel_fixo_entry"
                                         placeholder="Ex: +55 (21) 3030-1010" pattern="^.{18}$" required>
 
                                     <div class="invalid-feedback">Telefone inválido</div>
                                 </div>
                             </div>
 
-                            <!-- Endereço completo -->
+                            <!-- CEP -->
                             <div class="row">
                                 <div class="col form-group mb-3">
-                                    <label for="address">Endereço Completo</label>
-                                    <input class="form-control" type="text" name="address" id="address_entry"
-                                        placeholder="Ex: Av. das Américas, 3434, Barra da Tijuca - RJ"
-                                        pattern="^(?!\s)(?!\s.*\s$).{20,100}(?<!\s)$" required>
+                                    <label for="cep">CEP</label>
+                                    <input class="form-control" type="text" name="cep" id="cep_entry"
+                                        placeholder="00000-000" pattern="^\d{5}-\d{3}$" required>
 
                                     <div class="invalid-feedback">Endereço muito curto</div>
                                 </div>
@@ -443,7 +448,6 @@
             </path>
         </svg>
     </div>
-
 
     <!-- Bootstrap JS -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
