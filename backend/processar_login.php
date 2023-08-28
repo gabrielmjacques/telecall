@@ -2,6 +2,7 @@
 
 include_once('mysql_conn.php');
 
+echo 'processando login...';
 $msg = '';
 
 $login = $_POST['login'];
@@ -22,10 +23,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $hashed_password)) {
             $msg = 'Login efetuado com sucesso!';
             header('Location: ../index.php?msg=' . $msg);
+
         } else {
             $msg = 'Login ou Senha incorreta!';
             header("Location: ../reglog.php?msg=$msg");
         }
+
+    } else {
+        $msg = 'Login ou Senha incorreta!';
+        header("Location: ../reglog.php?msg=$msg");
     }
 }
 
