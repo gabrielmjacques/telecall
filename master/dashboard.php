@@ -1,9 +1,13 @@
 <?php
 session_start();
+
+include_once('../backend/get-users.php');
+
+$masterUser = $_SESSION['user'];
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -23,7 +27,46 @@ session_start();
     include_once('../components/NavBar.php');
     ?>
 
-    sua dashboard
+    <main class="container-fluid">
+        <section class="row d-flex justify-content-center">
+
+            <div class="container p-4">
+                <h3 class='text-center'>Dashboard Master</h3>
+
+                <p class='px-5'>Usuário Master:
+                    <strong>
+                        <?php echo $masterUser['fullname'] ?>
+                    </strong>
+                </p>
+            </div>
+
+            <div class="table-container col-md-11 col-sm-12 border border-2 border-dark-subtle rounded overflow-scroll">
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nome Completo</th>
+                            <th scope="col">Data de Nasc.</th>
+                            <th scope="col">CPF</th>
+                            <th scope="col">Gênero</th>
+                            <th scope="col">CEP</th>
+                            <th scope="col">Celular</th>
+                            <th scope="col">Telefone</th>
+                            <th scope="col">Login</th>
+                            <th scope="col">Nome Materno</th>
+                            <th scope="col">Excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        getAllUsers();
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+    </main>
 
     <!-- Bootstrap JS -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
