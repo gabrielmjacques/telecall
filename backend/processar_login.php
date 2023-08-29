@@ -30,7 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Verifica a senha do usuário master
         if ($is_master) {
-            echo 'É master';
 
             if ($user['password'] == $password) {
                 $msg = 'Login efetuado com sucesso!';
@@ -39,8 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['user'] = $user;
                 $_SESSION['is_master'] = true;
 
-                header('Location: ../index.php?msg=' . $msg);
-                return;
+                header('Location: /telecall?msg=' . $msg);
+                exit;
             }
 
             // Verifica a senha do usuário comum
@@ -52,8 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['user'] = $user;
                 $_SESSION['is_master'] = false;
 
-                header('Location: ../index.php?msg=' . $msg);
-                return;
+                header('Location: /telecall?msg=' . $msg);
+                exit;
             }
         }
     }

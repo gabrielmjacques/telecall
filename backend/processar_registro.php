@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt_check->execute();
     $stmt_check->store_result();
 
-    if ($stmt_check->num_rows() > 0) {
+    if ($stmt_check->num_rows() == 1) {
         $msg = "Este Login já existe. Tente entrar!";
 
         header("location: ../reglog.php?msg=$msg");
