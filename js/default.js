@@ -1,19 +1,3 @@
-function LoadData() {
-    const create_account_btn = $( "#create-account-btn" )
-    const profile_dropdown = $( "#profile-dropdown" )
-    const profile_login = $( "#profile-login" )
-    const profile_name = $( "#profile-name" )
-    const modal_username = $( "#modal-username" )
-
-    const obj_user = JSON.parse( localStorage.getItem( "user_cad" ) )
-
-    profile_dropdown.css( "display", "block" )
-    create_account_btn.css( "display", "none" )
-    profile_login.text( obj_user.new_login )
-    profile_name.text( obj_user.name )
-    modal_username.val( obj_user.name )
-}
-
 function LoadStyle() {
     const theme = localStorage.getItem( "theme" )
     const font_size = localStorage.getItem( "font_size" )
@@ -61,6 +45,5 @@ function ChangeFontSize( val ) {
 $( document ).ready( () => {
     const isAuth = localStorage.getItem( "isAuth" )
 
-    if ( isAuth == "true" ) LoadData()
     LoadStyle()
 } )

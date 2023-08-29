@@ -162,10 +162,6 @@ nav {
     color: white;
 }
 
-#profile-dropdown {
-    display: none;
-}
-
 .warning {
     position: absolute;
     background-color: #fff;
