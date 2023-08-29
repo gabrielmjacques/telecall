@@ -15,7 +15,7 @@ if (isset($_SESSION['user'])) {
 <nav class="navbar navbar-expand-lg  navbar-dark p-0">
     <div class="container-fluid p-0">
         <a href="https://telecall.com" class="logo">
-            <img src="assets/logo.png" alt="Logo da Telecall">
+            <img src="/telecall/assets/logo.png" alt="Logo da Telecall">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -126,6 +126,17 @@ if (isset($_SESSION['user'])) {
                                     </button>
                                     <ul class='dropdown-menu dropdown-menu-sm-end'>
                                         <li>
+                                            <a class='dropdown-item' href='/telecall/index.php'>Início</a>
+                                        </li>";
+
+                    if ($is_master) {
+                        echo "<li>
+                                <a class='dropdown-item' href='master/dashboard.php'>Dashboard</a>
+                            </li>";
+                    }
+
+                    echo "        
+                                        <li>
                                             <a class='dropdown-item' href='backend/logout.php'>Desconectar</a>
                                         </li>
                                     </ul>
@@ -133,11 +144,11 @@ if (isset($_SESSION['user'])) {
                             </li>";
                 } else {
                     echo "<li class='nav-item'>
-                                    <a href='reglog.php' class='btn btn-sm btn-danger' type='button'
-                                        aria-expanded='false'>
-                                        Login / Cadastro
-                                    </a>
-                                </li>";
+                            <a href='reglog.php' class='btn btn-sm btn-danger' type='button'
+                                aria-expanded='false'>
+                                Login / Cadastro
+                            </a>
+                        </li>";
                 }
                 ?>
             </ul>

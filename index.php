@@ -35,7 +35,9 @@ if (isset($_SESSION['user'])) {
 <body>
     <?php
     if (isset($_GET['msg'])) {
-        echo "<p class='warning'>" . $_GET['msg'] . "</p>";
+        echo "<div class='alert alert-dark warning' role='alert'>
+                $_GET[msg]
+            </div>";
     }
 
     include_once('components/NavBar.php');
