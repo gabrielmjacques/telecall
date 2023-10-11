@@ -45,7 +45,7 @@ function ConfirmPasswordValidation() {
 function DateValidation() {
     const date = new Date;
 
-    const date_entry = document.querySelector( "#date_entry" );
+    const date_entry = document.querySelector( "#birth_date_entry" );
     const date_entry_year = Number( date_entry.value.slice( 0, 4 ) );
 
     if ( date_entry_year > date.getFullYear() - 18 ) {
