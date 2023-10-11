@@ -15,7 +15,7 @@ if (isset($_SESSION['user'])) {
 <nav class="navbar navbar-expand-lg  navbar-dark p-0">
     <div class="container-fluid p-0">
         <a href="./" class="logo">
-            <img src="./assets/logo.png" alt="Logo da Telecall">
+            <img src="/telecall/assets/logo.png" alt="Logo da Telecall">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -129,10 +129,10 @@ if (isset($_SESSION['user'])) {
                                     
                                     <ul class='dropdown-menu dropdown-menu-sm-end'>
                                         <li>
-                                            <a class='dropdown-item' href='../telecall/index.php'>Início</a>
+                                            <a class='dropdown-item' href='/telecall/'>Início</a>
                                         </li>
                                         <li>
-                                            <a class='dropdown-item' href='../backend/logout.php'>Desconectar</a>
+                                            <a class='dropdown-item' href='/telecall/backend/logout.php'>Desconectar</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -165,7 +165,7 @@ if (isset($_SESSION['user'])) {
                     // Se o usuário não estiver logado
                 } else {
                     echo "<li class='nav-item'>
-                            <a href='reglog.php' class='btn btn-sm btn-danger' type='button'
+                            <a href='/telecall/reglog.php' class='btn btn-sm btn-danger' type='button'
                                 aria-expanded='false'>
                                 Login / Cadastro
                             </a>

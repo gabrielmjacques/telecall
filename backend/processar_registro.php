@@ -1,8 +1,7 @@
 <?php
 
 include('mysql_conn.php');
-
-$msg = '';
+include_once('utils.php');
 
 $fullname = $_POST['fullname'];
 $birth_date = $_POST['birth_date'];
@@ -25,9 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt_check->store_result();
 
     if ($stmt_check->num_rows() == 1) {
-        $msg = "Este Login já existe. Tente entrar!";
+        RedirectTo('danger', 'Usuário já cadastrado. Faça login!', '../reglog.php');
 
-        header("location: ../reglog.php?msg=$msg");
     } else {
         $sql_query = "INSERT INTO users (fullname, birth_date, mother, cpf, gender, cel, tel_fixo, cep, login, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -37,8 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $stmt_insert->close();
 
-        $msg = "Usuário cadastrado com sucesso. Faça login!";
-        header("location: ../reglog.php?msg=$msg");
+        RedirectTo('success', 'Usuário cadastrado com sucesso! Faça login', '../reglog.php');
     }
 }
 
