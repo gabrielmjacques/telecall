@@ -1,8 +1,8 @@
 <?php
 
 include_once('mysql_conn.php');
+include_once('utils.php');
 
-$msg = '';
 
 $login = $_POST['login'];
 $password = $_POST['password'];
@@ -32,33 +32,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($is_master) {
 
             if ($user['password'] == $password) {
-                $msg = 'Login efetuado com sucesso!';
-
                 session_start();
                 $_SESSION['user'] = $user;
                 $_SESSION['is_master'] = true;
 
-                header('Location: /telecall?msg=' . $msg);
-                exit;
+                RedirectTo('success', 'Login efetuado com sucesso!', '../index.php');
             }
 
             // Verifica a senha do usuário comum
         } else {
             if (password_verify($password, $user['password'])) {
-                $msg = 'Login efetuado com sucesso!';
-
                 session_start();
                 $_SESSION['user'] = $user;
                 $_SESSION['is_master'] = false;
 
-                header('Location: /telecall?msg=' . $msg);
-                exit;
+                RedirectTo('success', 'Login efetuado com sucesso!', '../index.php');
             }
         }
     }
 
-    $msg = 'Login ou Senha incorreta!';
-    header("Location: ../reglog.php?msg=$msg");
+    RedirectTo('danger', 'Usuário ou senha incorretos!', '../reglog.php');
 }
 
 $mysqli->close();

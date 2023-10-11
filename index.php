@@ -34,14 +34,8 @@ if (isset($_SESSION['user'])) {
 
 <body>
     <?php
-    if (isset($_GET['msg'])) {
-        echo "<div class='alert alert-dark warning' role='alert'>
-                $_GET[msg]
-            </div>";
-    }
-
+    include_once('components/warningCard.php');
     include_once('components/NavBar.php');
-
     ?>
 
 

@@ -22,14 +22,8 @@
 
 <body>
     <?php
-    if (isset($_GET['msg'])) {
-        echo "<div class='alert alert-dark warning' role='alert'>
-                $_GET[msg]
-            </div>";
-    }
-
     include_once('components/NavBar.php');
-
+    include_once('components/warningCard.php')
     ?>
 
     <main class="container mt-5 mx-auto">
@@ -38,11 +32,11 @@
 
         <div class="row">
 
-            <div class="col-12 p-0 border rounded-3 mx-auto position-relative overflow-hidden"
+            <div class="col-12 p-0 border mx-auto position-relative overflow-hidden rounded-5"
                 style="max-width: 700px; box-shadow: 0 0 50px #00000049;">
 
                 <!-- Tela de Login -->
-                <div class="p-5 bg-body" id="login_div" style="transition-duration: 0.7s;">
+                <div class="p-5 bg-body rounded-5" id="login_div" style="transition-duration: 0.7s;">
                     <div class="row mb-3 mt-3">
                         <h3 class="text-center fw-bold">Entrar</h3>
                         <hr>
@@ -111,7 +105,7 @@
                 
                 
                 <!-- Tela de Cadastro -->
-                <div class="container-cad bg-body h-100 shadow-lg" id="cadastro_div">
+                <div class="container-cad bg-body h-100 shadow-lg rounded-5" id="cadastro_div">
                     <div class="p-5 position-relative">
 
                         <div class="close-button">

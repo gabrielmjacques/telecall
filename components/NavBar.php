@@ -123,17 +123,16 @@ if (isset($_SESSION['user'])) {
                     echo "<li class='nav-item' id='profile-dropdown'>
                                 <div class='dropdown'>
                                 
-                                    <button class='btn btn-sm btn-secondary dropdown-toggle' type='button' data-bs-toggle='dropdown'
-                                        aria-expanded='false'>
+                                    <button class='btn btn-sm btn-secondary dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'>
                                         <span id='profile-login'>$user[login]</span>
                                     </button>
                                     
                                     <ul class='dropdown-menu dropdown-menu-sm-end'>
                                         <li>
-                                            <a class='dropdown-item' href='/telecall/'>Início</a>
+                                            <a class='dropdown-item' href='../telecall/index.php'>Início</a>
                                         </li>
                                         <li>
-                                            <a class='dropdown-item' href='/telecall/backend/logout.php'>Desconectar</a>
+                                            <a class='dropdown-item' href='../backend/logout.php'>Desconectar</a>
                                         </li>
                                     </ul>
                                 </div>
