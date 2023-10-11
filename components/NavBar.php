@@ -14,8 +14,8 @@ if (isset($_SESSION['user'])) {
 
 <nav class="navbar navbar-expand-lg  navbar-dark p-0">
     <div class="container-fluid p-0">
-        <a href="/telecall" class="logo">
-            <img src="/telecall/assets/logo.png" alt="Logo da Telecall">
+        <a href="./" class="logo">
+            <img src="./assets/logo.png" alt="Logo da Telecall">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"

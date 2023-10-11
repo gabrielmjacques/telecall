@@ -39,6 +39,11 @@ body {
     right: 10px;
 }
 
+#cadastro_div {
+    transition-duration: 0.7s;
+    scale: 0.90;
+}
+
 .waves {
     position: absolute;
     overflow: hidden;

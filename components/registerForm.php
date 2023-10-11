@@ -1,5 +1,5 @@
 <!-- Tela de Cadastro -->
-<div class="container-cad bg-body h-100 shadow-lg" id="cadastro_div" style="transition-duration: 0.7s;">
+<div class="container-cad bg-body h-100 shadow-lg" id="cadastro_div">
     <div class="p-5 position-relative">
 
         <div class="close-button">
