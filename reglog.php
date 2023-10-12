@@ -23,12 +23,11 @@
 <body>
     <?php
     include_once('components/NavBar.php');
-    include_once('components/warningCard.php')
+    include_once('components/warningCard.php');
+    include_once('components/accessibilityMenu.php');
     ?>
 
-    <main class="container mt-5 mx-auto">
-
-        <?php include_once('components/accessibilityMenu.php'); ?>
+    <main class="container mt-3 mx-auto">
 
         <div class="row">
 

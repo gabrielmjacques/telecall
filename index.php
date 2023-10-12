@@ -36,92 +36,13 @@ if (isset($_SESSION['user'])) {
     <?php
     include_once('components/warningCard.php');
     include_once('components/NavBar.php');
+    include_once('components/accessibilityMenu.php'); 
     ?>
-
-
 
     <main class="container-fluid">
 
-        <?php include_once('components/accessibilityMenu.php'); ?>
 
-        <!-- Seção de apresentação -->
-        <section class="row apr-container">
-
-            <div
-                class="col-md-7 col-sm-10 mx-auto d-flex flex-column justify-content-center text-center p-5 apr-content">
-                <div class="row mb-5">
-                    <h2 class="mb-4">
-                        <strong>Resolva a complexidade de telecomunicação</strong> da sua empresa com nossa plataforma
-                        de comunicação corporativa
-                    </h2>
-
-                    <div class="col-md-8 mx-auto" style="font-family: Arial, Helvetica, sans-serif;">
-                        <h5>
-                            Com a Telecall, a comunicação não tem fronteiras. Conecte-se a qualquer momento, de qualquer
-                            lugar, com total segurança e confiabilidade.
-                        </h5>
-                    </div>
-                </div>
-
-                <div class="row d-flex gap-2">
-                    <div>
-                        <button type="button" class="btn btn-danger mx-auto" data-bs-toggle="modal"
-                            data-bs-target="#contactModal">
-                            Fale com nossos especialistas
-                        </button>
-                    </div>
-
-                    <a href="https://telecall.com/faq/"><button class="btn btn-danger">FAQ</button></a>
-                </div>
-            </div>
-
-            <img class="apr-wave" src="assets/main_page/apr_wave.svg" alt="">
-
-            <!-- Modal para Contato -->
-            <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModal" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Fale Conosco</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form class="needs-validation" novalidate>
-                            <div class="modal-body d-flex flex-column gap-4">
-                                <!-- Nome Completo -->
-                                <div class="form-group">
-                                    <label for="modal-username">Nome Completo</label>
-                                    <input type="text" class="form-control" id="modal-username" name="modal-username"
-                                        placeholder="Digite seu nome completo" required>
-                                </div>
-                                <!-- Campo Email -->
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email"
-                                        placeholder="Digite seu email" required>
-                                </div>
-                                <!-- Campo Assunto -->
-                                <div class="form-group">
-                                    <label for="subject">Assunto</label>
-                                    <input type="text" class="form-control" id="subject" name="subject"
-                                        placeholder="Digite o assunto" required>
-                                </div>
-                                <!-- Campo Mensagem -->
-                                <div class="form-group">
-                                    <label for="message">Mensagem</label>
-                                    <textarea class="form-control" id="message" name="message"
-                                        placeholder="Digite sua mensagem" required></textarea>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                <button type="submit" class="btn btn-danger">Enviar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-        </section>
+        
 
     </main>
 

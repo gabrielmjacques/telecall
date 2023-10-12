@@ -1,6 +1,6 @@
 <!-- Modal de Acessibilidade -->
 <button class="accessibility-menu" data-bs-toggle="modal" data-bs-target="#accessbilityModal">
-    <img src="assets/icons/accessibility.png" alt="">
+    <img src="/telecall/assets/icons/accessibility.png" alt="">
 </button>
 
 <div class="modal fade" id="accessbilityModal" tabindex="-1" aria-labelledby="accessbilityModal" aria-hidden="true">
@@ -21,9 +21,12 @@
 
                 <div class="mb-3">
                     <label class="form-label">Tamanho da Fonte</label> <br>
-                    <button class="btn btn-primary" onclick="ChangeFontSize(1.4)">Normal</button>
-                    <button class="btn btn-primary" onclick="ChangeFontSize(1.6)">Grande</button>
-                    <button class="btn btn-primary" onclick="ChangeFontSize(1.8)">Extra Grande</button>
+                    <button class="btn btn-primary" onclick="ChangeFontSize(20)">Normal</button>
+                    <button class="btn btn-primary" onclick="ChangeFontSize(22)">Grande</button>
+                    <button class="btn btn-primary" onclick="ChangeFontSize(24)">Extra Grande</button>
+                    <p class="text-danger fw-bold mt-1">
+                        <small>ATENÇÃO: Extra Grande pode causar poblemas na interface!</small>
+                    </p>
                 </div>
 
             </div>
