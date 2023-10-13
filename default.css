@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Rubik+Mono+One&display=swap');
+
 * {
     box-sizing: border-box;
 
@@ -7,7 +9,7 @@
 
 :root {
     --primary-color: #cf2e2e;
-    --secondary-color: #00aeffa6;
+    --secondary-color: #00aeff;
 
     --font-size: 20px;
 }
@@ -99,6 +101,8 @@ p,
 nav {
     background-color: var(--primary-color);
     position: relative;
+
+    z-index: 10;
 
     box-shadow: 0 5px 10px #00000053;
 }

@@ -32,17 +32,84 @@ if (isset($_SESSION['user'])) {
 
 </head>
 
-<body>
+<body class="bg-body-subtle" onload="onBodyLoad()">
     <?php
     include_once('components/warningCard.php');
     include_once('components/NavBar.php');
-    include_once('components/accessibilityMenu.php'); 
+    include_once('components/accessibilityMenu.php');
     ?>
 
-    <main class="container-fluid">
+    <main class="container-fluid p-0">
 
+        <div class="apr-container p-5 w-100">
+            <h1 class="apr-container-title"><!-- Titulo adicionado dentro de /js/main_page.js --></h1>
+            <h3>Com a Telecall, sua empresa está pronta para um futuro de crescimento e eficiência</h3>
+        </div>
 
-        
+        <div class="services pt-5">
+            <div class="row text-center text-body-emphasis">
+                <h1>Nossos Serviços</h1>
+                <h3 class="opacity-75">Que tal conhecer um pouco sobre alguns de nossos serviços?</h3>
+            </div>
+
+            <div class="row justify-content-center p-3 mt-5 mb-5 gap-3">
+
+                <!-- 2FA -->
+                <div class="card shadow bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5"
+                    style="--bs-bg-opacity: .4;">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h3>2FA</h3>
+                        <img src="assets/icons/2fa.svg" width="70px" alt="">
+                    </div>
+
+                    <p class="fw-bold opacity-75">
+                        Adicione uma camada extra de segurança para seus usuários com a autenticação de dois fatores.
+                    </p>
+                    <div class="arrow"><img class="icons" src="assets/icons/arrow.svg" alt=""></div>
+                </div>
+
+                <!-- Numero Máscara -->
+                <div class="card shadow bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5"
+                    style="--bs-bg-opacity: .4;">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h3>Número Máscara</h3>
+                        <img src="assets/icons/nummask.svg" width="70px" alt="">
+                    </div>
+
+                    <p class="fw-bold opacity-75">Com o número máscara, você pode ter um número de telefone virtual para
+                        receber chamadas e SMS.</p>
+                    <div class="arrow"><img class="icons" src="assets/icons/arrow.svg" alt=""></div>
+                </div>
+
+                <!-- SMS Programado -->
+                <div class="card shadow bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5"
+                    style="--bs-bg-opacity: .4;">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h3>SMS Programado</h3>
+                        <img src="assets/icons/smsprog.svg" width="70px" alt="">
+                    </div>
+
+                    <p class="fw-bold opacity-75">
+                        Envie SMS para seus clientes de forma programada, com o conteúdo que você desejar.
+                    </p>
+                    <div class="arrow"><img class="icons" src="assets/icons/arrow.svg" alt=""></div>
+                </div>
+
+                <div class="card shadow bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5"
+                    style="--bs-bg-opacity: .4;">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h3>2FA</h3>
+                        <img src="assets/icons/2fa.svg" width="70px" alt="">
+                    </div>
+
+                    <p class="fw-bold opacity-75">
+                        Adicione uma camada extra de segurança para seus usuários com a autenticação de dois fatores.
+                    </p>
+                    <div class="arrow"><img class="icons" src="assets/icons/arrow.svg" alt=""></div>
+                </div>
+
+            </div>
+        </div>
 
     </main>
 
@@ -59,29 +126,6 @@ if (isset($_SESSION['user'])) {
 
     <!-- Javascript Externo da Página -->
     <script src="js/main_page.js"></script>
-
-    <!-- Validação do Bootstrap -->
-    <script defer>
-        ( () => {
-            'use strict'
-
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            const forms = document.querySelectorAll( '.needs-validation' )
-
-            // Loop over them and prevent submission
-            Array.from( forms ).forEach( form => {
-                form.addEventListener( 'submit', event => {
-                    if ( !form.checkValidity() ) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
-
-                    form.classList.add( 'was-validated' )
-                }, false )
-            } )
-        } )()
-    </script>
-
 </body>
 
 </html>
