@@ -56,7 +56,7 @@ if (isset($_SESSION['user'])) {
 
                 <!-- 2FA -->
                 <div class="card shadow bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5"
-                    style="--bs-bg-opacity: .4;">
+                    style="--bs-bg-opacity: .4;" data-bs-toggle="offcanvas" data-bs-target="#2fa-offcanvas">
                     <div class="d-flex align-items-center justify-content-between">
                         <h3>2FA</h3>
                         <img src="assets/icons/2fa.svg" width="70px" alt="">
@@ -70,7 +70,7 @@ if (isset($_SESSION['user'])) {
 
                 <!-- Numero Máscara -->
                 <div class="card shadow bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5"
-                    style="--bs-bg-opacity: .4;">
+                    style="--bs-bg-opacity: .4;" data-bs-toggle="offcanvas" data-bs-target="nummask-offcanvas">
                     <div class="d-flex align-items-center justify-content-between">
                         <h3>Número Máscara</h3>
                         <img src="assets/icons/nummask.svg" width="70px" alt="">
@@ -83,7 +83,7 @@ if (isset($_SESSION['user'])) {
 
                 <!-- SMS Programado -->
                 <div class="card shadow bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5"
-                    style="--bs-bg-opacity: .4;">
+                    style="--bs-bg-opacity: .4;" data-bs-toggle="offcanvas" data-bs-target="smsprog-offcanvas">
                     <div class="d-flex align-items-center justify-content-between">
                         <h3>SMS Programado</h3>
                         <img src="assets/icons/smsprog.svg" width="70px" alt="">
@@ -96,7 +96,7 @@ if (isset($_SESSION['user'])) {
                 </div>
 
                 <div class="card shadow bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5"
-                    style="--bs-bg-opacity: .4;">
+                    style="--bs-bg-opacity: .4;" data-bs-toggle="offcanvas" data-bs-target="2fa-offcanvas">
                     <div class="d-flex align-items-center justify-content-between">
                         <h3>2FA</h3>
                         <img src="assets/icons/2fa.svg" width="70px" alt="">
@@ -112,6 +112,36 @@ if (isset($_SESSION['user'])) {
         </div>
 
     </main>
+
+
+    <!-- Offcanvas 2FA -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="2fa-offcanvas" aria-labelledby="2fa-offcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">2FA</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div>
+                <p>
+                    A Autenticação de Dois Fatores (2FA) é um método de segurança online que adiciona uma camada extra
+                    de
+                    proteção além da senha tradicional. Isso significa que, para acessar uma conta, o usuário precisa
+                    fornecer duas formas de verificação. A primeira é geralmente a senha, algo que o usuário sabe, e a
+                    segunda é um fator adicional, como um código enviado para o celular (algo que o usuário tem) ou uma
+                    impressão digital (algo que o usuário é).
+                </p>
+
+                <p>
+                    A 2FA protege contra acesso não autorizado, mesmo se a senha for comprometida. Ela é amplamente
+                    usada em
+                    serviços online e é uma prática recomendada para fortalecer a segurança digital, garantindo que
+                    apenas
+                    usuários autorizados acessem suas contas e informações.
+                </p>
+            </div>
+        </div>
+    </div>
+
 
     <!-- JavaScript Bootstrap -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
