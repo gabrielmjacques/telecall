@@ -5,23 +5,10 @@ body {
     overflow-x: hidden;
 }
 
-
-@keyframes circleBounce {
-    from {
-        transform: translateY(-20px);
-    }
-
-    to {
-        transform: translateY(20px);
-    }
-}
-
-
 .apr-container {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     color: #fff;
     background-color: #131313;
@@ -30,30 +17,7 @@ body {
     overflow: hidden;
 
     width: 100%;
-    min-height: 95dvh;
-}
-
-.apr-container::before,
-.apr-container::after {
-    content: '';
-    position: absolute;
-    background-color: #ffffff;
-
-    opacity: .05;
-    z-index: 0;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-}
-
-.apr-container::before {
-    top: -150px;
-    left: 50px;
-}
-
-.apr-container::after {
-    bottom: -150px;
-    right: 50px;
+    min-height: 110dvh;
 }
 
 .apr-container h1 {
@@ -64,10 +28,10 @@ body {
     margin-bottom: 30px;
     font-size: 3.5rem;
 
-    animation: bounce 7s infinite alternate;
+    animation: titleBounce 3s infinite alternate ease-in-out;
 }
 
-@keyframes bounce {
+@keyframes titleBounce {
 
     to {
         transform: translateY(-10px);
@@ -97,6 +61,39 @@ body {
 
 .apr-container h3 {
     opacity: .6;
+    margin-bottom: 200px;
+}
+
+.apr-container::before,
+.apr-container::after {
+    content: '';
+    position: absolute;
+    background-color: #ffffff;
+
+    opacity: .05;
+    z-index: 0;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+
+.apr-container::before {
+    top: -150px;
+    left: 50px;
+}
+
+.apr-container::after {
+    bottom: -150px;
+    right: 50px;
+}
+
+.apr-container .apr-wave {
+    position: absolute;
+
+    z-index: 1;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 
@@ -117,18 +114,10 @@ body {
     height: 250px;
     border-radius: 50%;
 
+    box-shadow: 0 0 20px #000000d6;
 }
 
 .services::before {
-    background-color: var(--primary-color);
-
-    bottom: 60px;
-    right: 100px;
-
-    animation: circleBounce 5s infinite alternate ease-in-out;
-}
-
-.services::after {
     background-color: var(--secondary-color);
 
     top: 150px;
@@ -137,23 +126,31 @@ body {
     animation: circleBounce 5s infinite alternate-reverse 1s ease-in-out;
 }
 
-.card {
-    transition-duration: .3s;
+.services::after {
+    background-color: var(--primary-color);
+
+    bottom: 60px;
+    right: 100px;
+
+    animation: circleBounce 5s infinite alternate ease-in-out;
+}
+
+.services .card {
+    transition-duration: .5s;
     backdrop-filter: blur(10px);
 }
 
-.card:hover {
+.services .card:hover {
     cursor: pointer;
 
-    transform: translateY(-7px);
+    transform: translateY(-10px);
 }
 
-.card:active {
-    transition-duration: .1s;
-    backdrop-filter: blur(7px) brightness(.8);
+.services .card:active {
+    transform: translateY(0px) scale(0.98);
 }
 
-.arrow {
+.services .card .arrow {
     width: 50px;
     padding: 10px;
     border-radius: 50%;
@@ -162,15 +159,26 @@ body {
     border: 3px solid #7e7e7e;
 }
 
-.card:hover .arrow {
+.services .card:hover .arrow {
     border: 3px solid transparent;
 }
 
-.card .arrow img {
+.services .card .arrow img {
     transition-duration: .5s;
+
     transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.card:hover .arrow img {
+.services .card:hover .arrow img {
     transform: translateX(20px) scale(1.4);
+}
+
+@keyframes circleBounce {
+    from {
+        transform: translateY(-20px);
+    }
+
+    to {
+        transform: translateY(20px);
+    }
 }

@@ -41,36 +41,6 @@ a {
     cursor: pointer;
 }
 
-h3 {
-    font-size: calc(var(--font-size) + 5px);
-}
-
-h4,
-h5 {
-    font-size: var(--font-size);
-}
-
-label,
-.card p,
-p,
-.btn {
-    font-size: calc(var(--font-size) - 3px);
-}
-
-.invalid-feedback {
-    font-size: calc(var(--font-size) - 5px);
-}
-
-.btn {
-    font-weight: bold;
-}
-
-.form-control:focus,
-.form-select:focus {
-    border-color: #a02525;
-    box-shadow: 0 0 0 0.2rem #cf2e2e3b;
-}
-
 
 
 .accessibility-menu {
@@ -96,7 +66,67 @@ p,
     width: 80%;
 }
 
+.warning {
+    position: absolute;
+    font-weight: bold;
 
+    z-index: 10;
+    width: 100%;
+    max-width: 500px;
+    top: 10px;
+    left: 10px;
+    padding: 10px 30px;
+
+    box-shadow: 3px 3px 10px #00000071;
+    border-left: 7px solid #00000027;
+    animation: warningShow 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards,
+        warningShow 1s 5s cubic-bezier(0.68, -0.55, 0.265, 1.55) reverse forwards;
+}
+
+@keyframes warningShow {
+    from {
+        left: -510px;
+    }
+
+    to {
+        left: 10px;
+    }
+}
+
+
+/* Dynamic Texts Sizes */
+h3 {
+    font-size: calc(var(--font-size) + 5px);
+}
+
+h4,
+h5 {
+    font-size: var(--font-size);
+}
+
+label,
+.card p,
+p,
+.btn {
+    font-size: calc(var(--font-size) - 3px);
+}
+
+.invalid-feedback {
+    font-size: calc(var(--font-size) - 5px);
+}
+
+
+/* Custom Bootstrap Classes */
+.btn {
+    font-weight: bold;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+
+    box-shadow: 0 0 0 0.2rem #cf2e2e70;
+}
 
 nav {
     background-color: var(--primary-color);
@@ -173,31 +203,16 @@ nav {
     color: white;
 }
 
-.warning {
-    position: absolute;
-    font-weight: bold;
-
-    z-index: 10;
-    width: 100%;
-    max-width: 500px;
-    top: 10px;
-    left: 10px;
-    padding: 10px 30px;
-
-    box-shadow: 3px 3px 10px #00000071;
-    border-left: 7px solid #00000027;
-    animation: warningShow 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards,
-        warningShow 1s 5s cubic-bezier(0.68, -0.55, 0.265, 1.55) reverse forwards;
+.offcanvas-backdrop.show {
+    opacity: 1;
+    background-color: rgba(15, 23, 42, .5);
+    backdrop-filter: blur(3px);
 }
 
-@keyframes warningShow {
-    from {
-        left: -510px;
-    }
+.offcanvas-body {
+    font-weight: bold;
 
-    to {
-        left: 10px;
-    }
+    opacity: .8;
 }
 
 
@@ -229,13 +244,4 @@ nav {
         box-shadow: none;
         border: none;
     }
-}
-
-
-
-/* Custom Offcanvas*/
-.offcanvas-backdrop.show {
-    opacity: 1;
-    background-color: rgba(15, 23, 42, .5);
-    backdrop-filter: blur(3px);
 }

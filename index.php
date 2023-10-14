@@ -44,6 +44,8 @@ if (isset($_SESSION['user'])) {
         <div class="apr-container p-5 w-100">
             <h1 class="apr-container-title"><!-- Titulo adicionado dentro de /js/main_page.js --></h1>
             <h3>Com a Telecall, sua empresa está pronta para um futuro de crescimento e eficiência</h3>
+
+            <img class="apr-wave" src="assets/main_page/apr_wave.svg" alt="">
         </div>
 
         <div class="services pt-5">

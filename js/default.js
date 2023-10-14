@@ -10,7 +10,7 @@ function LoadStyle() {
     } else {
         $( "html" ).attr( "data-bs-theme", "light" );
         $( "#theme_switch" ).attr( "checked", false );
-        $( ".apr-wave" ).attr( "width", "assets/main_page/apr_wave.svg" );
+        $( ".apr-wave" ).attr( "src", "assets/main_page/apr_wave.svg" );
         $( ".icons" ).css( "filter", "invert(0%)" );
     }
 
@@ -41,7 +41,5 @@ function ChangeFontSize( val ) {
 }
 
 $( document ).ready( () => {
-    const isAuth = localStorage.getItem( "isAuth" );
-
     LoadStyle();
 } );
