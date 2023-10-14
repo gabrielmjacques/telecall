@@ -137,16 +137,20 @@ body {
 
 .services .card {
     transition-duration: .5s;
+
+    box-shadow: 0 3px 20px #00000071;
     backdrop-filter: blur(10px);
 }
 
 .services .card:hover {
     cursor: pointer;
 
+    box-shadow: 0 3px 30px #00000071;
     transform: translateY(-10px);
 }
 
 .services .card:active {
+    box-shadow: 0 3px 10px #00000071;
     transform: translateY(0px) scale(0.98);
 }
 
@@ -171,6 +175,21 @@ body {
 
 .services .card:hover .arrow img {
     transform: translateX(20px) scale(1.4);
+}
+
+.offcanvas {
+    box-shadow: -5px 0 40px #00000071;
+}
+
+.offcanvas-img img {
+    transition-duration: .3s;
+    filter: saturate(1.4) contrast(1.4) drop-shadow(0 0 8px #000000db);
+}
+
+.offcanvas-img img:hover {
+    scale: 1.1;
+
+    filter: saturate(1.4) contrast(1.4) drop-shadow(0 0 20px #0000006b);
 }
 
 @keyframes circleBounce {

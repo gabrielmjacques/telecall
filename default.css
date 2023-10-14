@@ -204,14 +204,31 @@ nav {
 }
 
 .offcanvas-backdrop.show {
+    background-color: #0f172a80;
+
     opacity: 1;
-    background-color: rgba(15, 23, 42, .5);
-    backdrop-filter: blur(3px);
+
+    backdrop-filter: blur(2px);
+}
+
+html:has(.offcanvas-backdrop.show) {
+    overflow: hidden;
+}
+
+.offcanvas-header {
+    box-shadow: 0 5px 40px 2px #000000a6;
+}
+
+.offcanvas-title {
+    font-weight: bold;
+
+    font-size: 1.7rem;
 }
 
 .offcanvas-body {
     font-weight: bold;
 
+    margin-right: 5px;
     opacity: .8;
 }
 
