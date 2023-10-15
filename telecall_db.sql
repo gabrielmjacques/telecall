@@ -1,94 +1,56 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Tempo de geração: 29/08/2023 às 19:35
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.0.28
+-- MySQL Workbench Forward Engineering
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema telecall_db
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema telecall_db
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `telecall_db` DEFAULT CHARACTER SET utf8mb3 ;
+USE `telecall_db` ;
+
+-- -----------------------------------------------------
+-- Table `telecall_db`.`master_users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `telecall_db`.`master_users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `fullname` VARCHAR(100) NOT NULL,
+  `login` VARCHAR(6) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+-- -----------------------------------------------------
+-- Table `telecall_db`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `telecall_db`.`users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `fullname` VARCHAR(100) NOT NULL,
+  `mother` VARCHAR(100) NOT NULL,
+  `birth_date` DATE NOT NULL,
+  `cpf` VARCHAR(14) NOT NULL,
+  `gender` VARCHAR(3) NOT NULL,
+  `cel` VARCHAR(19) NOT NULL,
+  `tel_fixo` VARCHAR(18) NOT NULL,
+  `cep` VARCHAR(9) NOT NULL,
+  `login` VARCHAR(6) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 2
+DEFAULT CHARACTER SET = utf8mb3;
 
---
--- Banco de dados: `telecall_db`
---
-CREATE DATABASE IF NOT EXISTS `telecall_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `telecall_db`;
 
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `master_users`
---
-
-CREATE TABLE `master_users` (
-  `id` int(11) NOT NULL,
-  `fullname` varchar(100) NOT NULL,
-  `login` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `users`
---
-
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `fullname` varchar(100) NOT NULL,
-  `birth_date` date NOT NULL,
-  `cpf` varchar(14) NOT NULL,
-  `gender` varchar(3) NOT NULL,
-  `cel` varchar(19) NOT NULL,
-  `tel_fixo` varchar(18) NOT NULL,
-  `cep` varchar(9) NOT NULL,
-  `login` varchar(6) NOT NULL,
-  `mother` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Índices para tabelas despejadas
---
-
---
--- Índices de tabela `master_users`
---
-ALTER TABLE `master_users`
-  ADD PRIMARY KEY (`id`);
-
---
--- Índices de tabela `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT para tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `master_users`
---
-ALTER TABLE `master_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

@@ -88,7 +88,7 @@ a {
     position: absolute;
     font-weight: bold;
 
-    z-index: 10;
+    z-index: 11;
     width: 100%;
     max-width: 500px;
     top: 10px;
