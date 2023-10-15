@@ -221,6 +221,23 @@ nav {
     color: white;
 }
 
+.card {
+    transition-duration: .5s;
+
+    box-shadow: 0 3px 10px #00000034;
+    backdrop-filter: blur(10px);
+}
+
+.card-hover:hover {
+    box-shadow: 0 3px 30px #00000034;
+    transform: translateY(-10px);
+}
+
+.card-hover:active {
+    box-shadow: 0 3px 10px #00000034;
+    transform: translateY(0px) scale(0.98);
+}
+
 .offcanvas-backdrop.show {
     background-color: #0f172a80;
 
@@ -234,7 +251,8 @@ html:has(.offcanvas-backdrop.show) {
 }
 
 .offcanvas-header {
-    box-shadow: 0 5px 40px 2px #000000a6;
+    border-radius: 0 0 0 30px;
+    box-shadow: 0 5px 40px 2px #0000003b;
 }
 
 .offcanvas-title {

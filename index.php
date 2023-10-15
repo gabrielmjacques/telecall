@@ -39,15 +39,17 @@ if (isset($_SESSION['user'])) {
     include_once('components/accessibilityMenu.php');
     ?>
 
-    <main class="container-fluid p-0">
+    <main class="container-fluid w-100 p-0">
 
+        <!-- Banner -->
         <div class="apr-container p-5 w-100">
             <h1 class="apr-container-title"><!-- Titulo adicionado dentro de /js/main_page.js --></h1>
             <h3>Com a Telecall, sua empresa está pronta para um futuro de crescimento e eficiência</h3>
 
-            <img class="apr-wave" src="assets/main_page/apr_wave.svg" alt="">
+            <img class="apr-wave p-0" src="assets/main_page/apr_wave.svg" alt="">
         </div>
 
+        <!-- Serviços -->
         <div class="services pt-5">
             <div class="row text-center text-body-emphasis">
                 <h1>Nossos Serviços</h1>
@@ -57,7 +59,7 @@ if (isset($_SESSION['user'])) {
             <div class="row justify-content-center p-3 mt-5 mb-5 gap-3">
 
                 <!-- 2FA -->
-                <div class="card bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5"
+                <div class="card card-hover bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5"
                     style="--bs-bg-opacity: .4;" data-bs-toggle="offcanvas" data-bs-target="#2fa-offcanvas">
                     <div class="d-flex align-items-center justify-content-between">
                         <h3>2FA</h3>
@@ -71,7 +73,7 @@ if (isset($_SESSION['user'])) {
                 </div>
 
                 <!-- Numero Máscara -->
-                <div class="card bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5"
+                <div class="card card-hover bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5"
                     style="--bs-bg-opacity: .4;" data-bs-toggle="offcanvas" data-bs-target="#nummask-offcanvas">
                     <div class="d-flex align-items-center justify-content-between">
                         <h3>Número Máscara</h3>
@@ -84,7 +86,7 @@ if (isset($_SESSION['user'])) {
                 </div>
 
                 <!-- SMS Programado -->
-                <div class="card bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5"
+                <div class="card card-hover bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5"
                     style="--bs-bg-opacity: .4;" data-bs-toggle="offcanvas" data-bs-target="#smsprog-offcanvas">
                     <div class="d-flex align-items-center justify-content-between">
                         <h3>SMS Programado</h3>
@@ -97,7 +99,7 @@ if (isset($_SESSION['user'])) {
                     <div class="arrow"><img class="icons" src="assets/icons/arrow.svg" alt=""></div>
                 </div>
 
-                <div class="card bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5"
+                <div class="card card-hover bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5"
                     style="--bs-bg-opacity: .4;" data-bs-toggle="offcanvas" data-bs-target="#verify-offcanvas">
                     <div class="d-flex align-items-center justify-content-between">
                         <h3>Google Verified Calls</h3>
@@ -111,6 +113,67 @@ if (isset($_SESSION['user'])) {
                     <div class="arrow"><img class="icons" src="assets/icons/arrow.svg" alt=""></div>
                 </div>
 
+            </div>
+        </div>
+
+        <!-- Por que Telecall -->
+        <div class="row p-5 justify-content-between">
+            <div class="col-md-6 col-sm-12 px-2">
+                <div class="row">
+                    <h2>Por que escolher a <span class="text-danger">Telecall</span>?</h2>
+                </div>
+
+                <hr class="border border-2 border-danger">
+
+                <div class="row why-text">
+                    <div class="card bg-body p-3 rounded-5" style="--bs-bg-opacity: .4;">
+                        <p class=" fw-bold opacity-75">
+                            Escolher o CPaaS da Telecall significa elevar suas comunicações a um novo patamar. Com nossa
+                            plataforma avançada, você integra facilmente mensagens, chamadas e recursos de comunicação
+                            em
+                            tempo real em seus aplicativos. Conte com nossa confiabilidade, suporte de qualidade e
+                            flexibilidade para atender às suas necessidades. Melhore a interação com clientes e otimize
+                            processos com a Telecall</p>
+                    </div>
+                </div>
+
+                <div class="row my-4">
+                    <img class="col-7 mx-auto img-fluid" src="assets/main_page/por-que-telecall.png" alt="">
+                </div>
+            </div>
+
+            <div class="col-md-5 col-sm-12 d-flex flex-column justify-content-between">
+                <div class="row card bg-light-subtle mb-3">
+                    <div class="card-header fw-bold">Confiabilidade</div>
+                    <div class="card-body">
+                        <p class="card-text">Garantimos um serviço confiável para que suas comunicações funcionem sem
+                            interrupções</p>
+                    </div>
+                </div>
+
+                <div class="row card bg-light-subtle mb-3">
+                    <div class="card-header fw-bold">Suporte de Qualidade</div>
+                    <div class="card-body">
+                        <p class="card-text">Oferecemos suporte técnico de alta qualidade para atender às suas
+                            necessidades e resolver quaisquer problemas</p>
+                    </div>
+                </div>
+
+                <div class="row card bg-light-subtle mb-3">
+                    <div class="card-header fw-bold">Confiabilidade</div>
+                    <div class="card-body">
+                        <p class="card-text">Garantimos um serviço confiável para que suas comunicações funcionem sem
+                            interrupções</p>
+                    </div>
+                </div>
+
+                <div class="row card bg-light-subtle mb-3">
+                    <div class="card-header fw-bold">Suporte de Qualidade</div>
+                    <div class="card-body">
+                        <p class="card-text">Oferecemos suporte técnico de alta qualidade para atender às suas
+                            necessidades e resolver quaisquer problemas</p>
+                    </div>
+                </div>
             </div>
         </div>
 

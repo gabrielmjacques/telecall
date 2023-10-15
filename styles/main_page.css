@@ -5,6 +5,16 @@ body {
     overflow-x: hidden;
 }
 
+@keyframes circleBounce {
+    from {
+        transform: translateY(-20px);
+    }
+
+    to {
+        transform: translateY(20px);
+    }
+}
+
 /* Custom Cursor Rules */
 .cursor {
     position: absolute;
@@ -171,22 +181,7 @@ body:has(.letter-hover:hover) .cursor {
 }
 
 .services .card {
-    transition-duration: .5s;
-
-    box-shadow: 0 3px 20px #00000071;
-    backdrop-filter: blur(10px);
-}
-
-.services .card:hover {
     cursor: pointer;
-
-    box-shadow: 0 3px 30px #00000071;
-    transform: translateY(-10px);
-}
-
-.services .card:active {
-    box-shadow: 0 3px 10px #00000071;
-    transform: translateY(0px) scale(0.98);
 }
 
 .services .card .arrow {
@@ -227,14 +222,25 @@ body:has(.letter-hover:hover) .cursor {
     filter: saturate(1.4) contrast(1.4) drop-shadow(0 0 20px #0000006b);
 }
 
-@keyframes circleBounce {
-    from {
-        transform: translateY(-20px);
-    }
 
-    to {
-        transform: translateY(20px);
-    }
+.why-text {
+    position: relative;
+}
+
+.why-text::before {
+    content: '';
+    position: absolute;
+    background-color: var(--primary-color);
+
+    opacity: .4;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    top: 0px;
+    right: 20%;
+
+    box-shadow: 0 0 20px var(--primary-color);
+    animation: circleBounce 10s infinite alternate ease-in-out;
 }
 
 
