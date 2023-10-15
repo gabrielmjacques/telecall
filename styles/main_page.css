@@ -5,14 +5,49 @@ body {
     overflow-x: hidden;
 }
 
+/* Custom Cursor Rules */
+.cursor {
+    position: absolute;
+    display: none;
+    cursor: none;
+    pointer-events: none;
+    background-color: white;
+
+    z-index: 3;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    padding: 5px;
+
+    transition: scale .5s, outline .3s, background-color .5s;
+    transform: translate(-50%, -50%);
+    outline: 0px solid #ffffffb6;
+    box-shadow: 0 0 0px #fff;
+}
+
+body:has(.apr-container:hover) .cursor {
+    display: block;
+}
+
+body:has(.letter-hover:hover) .cursor {
+    background-color: transparent;
+
+    opacity: 1;
+    scale: 1.5;
+
+    outline: 3px solid #ffffff;
+    box-shadow: 0 0 5px 2px #fff;
+}
+
 .apr-container {
+    pointer-events: auto;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     color: #fff;
     background-color: #131313;
-    cursor: default;
+    cursor: none;
     text-align: center;
     overflow: hidden;
 
@@ -41,13 +76,13 @@ body {
 .letter-hover {
     display: inline-block;
 
-    transition-duration: .3s;
+    transition-duration: .5s;
 }
 
 .letter-hover:hover {
     color: var(--primary-color);
 
-    text-shadow: 0 7px #ff3d3d6e;
+    text-shadow: 0 7px #ff3d3d6e, 0 0 2px var(--primary-color);
     transform: translateY(-7px);
 }
 
@@ -55,8 +90,8 @@ body {
 .letter-hover:has(+ .letter-hover:hover) {
     color: #ffaaaa;
 
-    text-shadow: 0 3px #5c3838;
-    transform: translateY(-3px);
+    text-shadow: 0 4px #bc7272;
+    transform: translateY(-4px);
 }
 
 .apr-container h3 {
@@ -83,8 +118,8 @@ body {
 }
 
 .apr-container::after {
-    bottom: -150px;
-    right: 50px;
+    bottom: -50px;
+    right: -110px;
 }
 
 .apr-container .apr-wave {
@@ -199,5 +234,13 @@ body {
 
     to {
         transform: translateY(20px);
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .apr-container h1 {
+        font-size: 2.5rem;
     }
 }

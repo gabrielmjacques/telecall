@@ -1,5 +1,6 @@
 function onBodyLoad() {
     setApresentationTitle( 'Inovação em Comunicação!' );
+    setCustomCursorPosition();
 }
 
 function setApresentationTitle( title ) {
@@ -15,5 +16,19 @@ function setApresentationTitle( title ) {
                 apresentation_title.innerHTML += `<span class='letter-hover'>${ title[ i ] }</span>`;
             }
         }
+    }
+}
+
+function setCustomCursorPosition() {
+    if ( window.innerWidth > 768 ) {
+        const new_cursor = document.createElement( 'div' );
+        new_cursor.classList.add( 'cursor' );
+        document.body.appendChild( new_cursor );
+        const cursor = document.querySelector( '.cursor' );
+
+        document.body.addEventListener( 'mousemove', ( event ) => {
+            cursor.style.left = `${ event.pageX }px`;
+            cursor.style.top = `${ event.pageY }px`;
+        } );
     }
 }

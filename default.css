@@ -227,6 +227,7 @@ html:has(.offcanvas-backdrop.show) {
 
 .offcanvas-body {
     font-weight: bold;
+    overflow-x: hidden;
 
     margin-right: 5px;
     opacity: .8;
