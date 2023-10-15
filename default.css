@@ -44,22 +44,40 @@ a {
 
 
 .accessibility-menu {
-    background-image: linear-gradient(to bottom, #de4141, #ac1f1f);
+    /* background-image: linear-gradient(to bottom, #de4141, #ac1f1f); */
+    background-color: var(--primary-color);
     position: fixed;
     border: none;
 
     z-index: 3;
-    right: 30px;
+    left: -50px;
     bottom: 30px;
     width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    height: 70px;
+    opacity: .5;
     transition-duration: .3s;
     box-shadow: 3px 3px 10px #00000081;
 }
 
+.accessibility-menu::after {
+    content: '';
+    position: absolute;
+    background-color: var(--primary-color);
+
+    top: 0;
+    left: 100%;
+    width: 15px;
+    height: 100%;
+    border-radius: 0 10px 10px 0;
+}
+
 .accessibility-menu:hover {
-    transform: scale(1.2);
+    left: 0;
+    opacity: 1;
+}
+
+.accessibility-menu:active {
+    opacity: .3;
 }
 
 .accessibility-menu img {
