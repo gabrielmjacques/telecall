@@ -1,6 +1,12 @@
-// Divs de cadastro e login
+// Elementos do DOM
 const login_div = $("#login_div");
+const login_form = $("#login_form");
+const login_submit = $("#login_form_submit");
+const tfa_form = $("#2fa_form");
 const cadastro_div = $("#cadastro_div");
+const TFAModal = new bootstrap.Modal('#tfa_modal');
+const tfa_answer_entry = $('#2fa_answer_entry');
+const tfa_column_entry = $('#2fa_column_entry');
 
 // Inputs de cadastro
 const cpf = $("#cpf_entry");
@@ -12,6 +18,107 @@ const address_entry = $("#address_entry");
 // Feedbacks de cadastro
 const cep_feedback = $("#cep_feedback");
 cep_feedback.css("display", "none");
+
+
+// Validação do Bootstrap
+(() => {
+    'use strict';
+
+    const forms = document.querySelectorAll('.needs-validation');
+
+    Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+            event.preventDefault();
+
+            if (!form.checkValidity()) {
+                event.stopPropagation();
+            }
+
+            form.classList.add('was-validated');
+
+            // se for form de login execute a função de login
+            if (form.checkValidity() && form.id == 'login_form') {
+                Login(event);
+            }
+        }, false);
+    });
+})();
+
+/**
+ * Função para fazer o login
+ */
+function Login(e) {
+    login_submit.html("Carregando...");
+    login_submit.attr("disabled", "true");
+
+    // Fazendo a requisição
+    fetch('backend/endpoints/login.php', {
+        method: 'POST',
+        body: new FormData(login_form[0])
+    })
+        .then(res => res.json())
+        .then(res => {
+            // Se o login for bem sucedido
+            if (res.status == "success") {
+
+                if (res.is_master) {
+                    // Redireciona para o dashboard
+                    window.location.href = "master/dashboard.php";
+
+                } else {
+                    // Abre o modal de autenticação de dois fatores
+                    TFAModal.show();
+
+                    // Preenche o modal com a pergunta de segurança e o nome da coluna
+                    $('#2fa_question').text(res.question);
+                    tfa_column_entry.val(res.column);
+
+                    switch (res.column) {
+                        case 'cep':
+                            tfa_answer_entry.mask("00000-000");
+                            break;
+                        case 'birth_date':
+                            tfa_answer_entry.attr("type", "date");
+                            break;
+                    }
+                }
+
+            } else {
+                ShowToast(res.message);
+            }
+        })
+        .catch(() => {
+            ShowToast("Erro ao conectar ao servidor");
+        })
+        .finally(() => {
+            // Reseta o botão de login
+            login_submit.html("Entrar");
+            login_submit.removeAttr("disabled");
+        });
+
+};
+
+/**
+ * Função para fazer a autenticação de dois fatores
+ */
+tfa_form.on('submit', e => {
+    e.preventDefault();
+
+    // Fazendo a requisição
+    fetch('backend/endpoints/auth.php', {
+        method: 'POST',
+        body: new FormData(tfa_form[0])
+    })
+        .then(res => res.json())
+        .then(res => {
+            if (res.status == "success") {
+                window.location.href = "index.php";
+
+            } else {
+                ShowToast(res.message);
+            }
+        });
+});
 
 /**
  * Função para recuperar o endereço pelo CEP usando a API do ViaCEP e preencher os campos de endereço

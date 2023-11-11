@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start();?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -22,10 +22,9 @@
 
 <body>
     <?php
-    include_once('components/warningCard.php'); // Inclui o componente de aviso
-    include_once('components/NavBar.php'); // Inclui a barra de navegação
-    include_once('components/accessibilityMenu.php'); // Inclui o menu de acessibilidade
-    ?>
+include_once 'components/NavBar.php'; // Inclui a barra de navegação
+include_once 'components/accessibilityMenu.php'; // Inclui o menu de acessibilidade
+?>
 
     <main class="container mt-3 mx-auto">
 
@@ -41,8 +40,37 @@
                         <hr>
                     </div>
 
+                    <!-- Modal de 2FA -->
+                    <div id="tfa_modal" class="modal fade" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <form id="2fa_form" class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">2 Fator de Autenticação</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <h4 id="2fa_question">Pergunta de Segurança:</h4>
+
+                                    <div class=" form-group mb-3">
+                                        <input class="form-control" type="text" name="2fa_answer"
+                                            id="2fa_answer_entry" required>
+
+                                        <input type="hidden" id="2fa_column_entry" name="2fa_column">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Fechar</button>
+
+                                    <button class="btn btn-primary">Enviar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
                     <!-- Login -->
-                    <form class="needs-validation" novalidate action="backend/processar_login.php" method="post">
+                    <form class="needs-validation" id="login_form" novalidate>
                         <div class=" form-group mb-3">
                             <label for="login_entry">Login de Usuário</label>
 
@@ -53,7 +81,6 @@
 
                                 <input class="form-control" type="text" name="login" id="login_entry" required>
                             </div>
-
                         </div>
 
                         <!-- Senha -->
@@ -80,27 +107,19 @@
                                 <a href="forgot_password.php" class="btn btn-sm"><small>Esqueci minha senha</small></a>
                             </div>
 
-                            <div class="form-check form-switch my-2">
-                                <input class="form-check-input" type="checkbox" role="switch" name="is_master"
-                                    id="is_master_entry">
-                                <label class="form-check-label" for="is_master_entry">Usuário Master</label>
-                            </div>
-
                         </div>
 
                         <!-- Botão Entrar -->
                         <div class="form-group mb-3">
-                            <button href="index.html" class="btn w-100 btn-outline-danger">
+                            <button href="index.html" id="login_form_submit" class="btn w-100 btn-outline-danger">
                                 Entrar na Conta
                             </button>
                         </div>
                     </form>
 
                     <!-- Mostrar aba de cadastro -->
-                    <button type="button" class="show_cad_btn btn btn-sm w-100" onclick="ShowCad()">Não
-                        tenho conta,
-                        quero me
-                        cadastrar!</button>
+                    <button type="button" class="show_cad_btn btn btn-sm w-100" onclick="ShowCad()">Não tenho conta,
+                        quero me cadastrar!</button>
                 </div>
 
 
@@ -357,41 +376,19 @@
     <!-- Bootstrap JS -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-    </script>
+        </script>
 
     <!-- JQuery e JQuery Mask Plugins -->
     <script defer src="js/jquery.js"></script>
     <script defer src="js/jquery.mask.js"></script>
 
-    <!-- Javascript Padrão -->
+    <!-- Utilitários -->
     <script defer src="js/default.js"></script>
-
-    <script defer src="utils/locals.js"></script>
+    <script defer src="js/util/locals.js"></script>
+    <script defer src="js/util/toast.js"></script>
 
     <!-- Javascript Externo da Página -->
     <script defer src="js/login.js"></script>
-
-    <!-- Validação do Bootstrap -->
-    <script defer>
-    (() => {
-        'use strict'
-
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        const forms = document.querySelectorAll('.needs-validation')
-
-        // Loop over them and prevent submission
-        Array.from(forms).forEach(form => {
-            form.addEventListener('submit', event => {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
-
-                form.classList.add('was-validated')
-            }, false)
-        })
-    })()
-    </script>
 
 </body>
 

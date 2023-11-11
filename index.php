@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('components/NavBar.php');
+include_once 'components/NavBar.php';
 
 if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
@@ -33,10 +33,9 @@ if (isset($_SESSION['user'])) {
 
 <body class="bg-body-subtle" onload="onBodyLoad()">
     <?php
-    include_once('components/warningCard.php');
-    include_once('components/NavBar.php');
-    include_once('components/accessibilityMenu.php');
-    ?>
+include_once 'components/NavBar.php';
+include_once 'components/accessibilityMenu.php';
+?>
 
     <main class="container-fluid w-100 p-0">
 
@@ -61,14 +60,20 @@ if (isset($_SESSION['user'])) {
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label for="nome" class="form-label">Nome</label>
-                                <input type="text" class="form-control" id="nome" name="fullname" placeholder="Nome" pattern="^(?!.*\s$)(?!^\s)[A-Za-zÀ-ÿ\s]{10,60}$" required value="<?php if (isset($user['fullname'])) echo $user['fullname'] ?>">
+                                <input type="text" class="form-control" id="nome" name="fullname" placeholder="Nome" pattern="^(?!.*\s$)(?!^\s)[A-Za-zÀ-ÿ\s]{10,60}$" required value="<?php if (isset($user['fullname'])) {
+    echo $user['fullname'];
+}
+?>">
 
                                 <div class="invalid-feedback">Nome deve ter entre 10 e 60 caracteres</div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="celular" class="form-label">Celular</label>
-                                <input class="form-control" type="text" name="cel" id="cel_entry" placeholder="Ex: +55 (21) 93030-1010" pattern="^.{19}$" required value="<?php if (isset($user['cel'])) echo $user['cel'] ?>">
+                                <input class="form-control" type="text" name="cel" id="cel_entry" placeholder="Ex: +55 (21) 93030-1010" pattern="^.{19}$" required value="<?php if (isset($user['cel'])) {
+    echo $user['cel'];
+}
+?>">
 
                                 <div class="invalid-feedback">Celular inválido</div>
                             </div>
@@ -387,11 +392,11 @@ if (isset($_SESSION['user'])) {
     <!-- JQuery Mask -->
     <script defer src="js/jquery.mask.js"></script>
 
-    <!-- Javascript Padrão -->
-    <script defer src="js/default.js"></script>
-
     <!-- Javascript Externo da Página -->
     <script defer src="js/main_page.js"></script>
+
+    <!-- Utilitários -->
+    <script defer src="js/default.js"></script>
 
     <!-- Validação do Bootstrap -->
     <script defer>

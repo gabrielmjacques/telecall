@@ -89,6 +89,15 @@ select:hover {
     width: 80%;
 }
 
+nav {
+    background-color: var(--primary-color);
+    position: relative;
+
+    z-index: 10;
+
+    box-shadow: 0 5px 10px #00000053;
+}
+
 .warning {
     position: absolute;
     font-weight: bold;
@@ -156,15 +165,6 @@ p,
     filter: brightness(.9);
     pointer-events: none;
     touch-action: none;
-}
-
-nav {
-    background-color: var(--primary-color);
-    position: relative;
-
-    z-index: 10;
-
-    box-shadow: 0 5px 10px #00000053;
 }
 
 .logo img {
@@ -281,6 +281,9 @@ html:has(.offcanvas-backdrop.show) {
     opacity: .8;
 }
 
+.toast {
+    z-index: 1056;
+}
 
 
 @media (max-width: 994px) {
