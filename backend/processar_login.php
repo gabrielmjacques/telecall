@@ -1,8 +1,7 @@
 <?php
 
-include_once('mysql_conn.php');
-include_once('utils.php');
-
+include_once 'mysql_conn.php';
+include_once 'utils.php';
 
 $login = $_POST['login'];
 $password = $_POST['password'];

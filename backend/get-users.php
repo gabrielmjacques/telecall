@@ -2,7 +2,7 @@
 
 include_once('mysql_conn.php');
 
-function convertToHTML($allUsers)
+function ConvertToHTML($allUsers)
 {
     foreach ($allUsers as $user) {
         $id = $user['id'];
@@ -62,5 +62,5 @@ function getAllUsers()
         $allUsers = null;
     }
 
-    return convertToHTML($allUsers);
+    return ConvertToHTML($allUsers);
 }

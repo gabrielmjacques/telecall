@@ -8,19 +8,19 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Schema mydb
 -- -----------------------------------------------------
 -- -----------------------------------------------------
--- Schema telecall_db
+-- Schema telecall_teste
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema telecall_db
+-- Schema telecall_teste
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `telecall_db` DEFAULT CHARACTER SET utf8mb3 ;
-USE `telecall_db` ;
+CREATE SCHEMA IF NOT EXISTS `telecall_teste` DEFAULT CHARACTER SET utf8mb3 ;
+USE `telecall_teste` ;
 
 -- -----------------------------------------------------
--- Table `telecall_db`.`master_users`
+-- Table `telecall_teste`.`master_users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `telecall_db`.`master_users` (
+CREATE TABLE IF NOT EXISTS `telecall_teste`.`master_users` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `fullname` VARCHAR(100) NOT NULL,
   `login` VARCHAR(6) NOT NULL,
@@ -31,9 +31,9 @@ DEFAULT CHARACTER SET = utf8mb3;
 
 
 -- -----------------------------------------------------
--- Table `telecall_db`.`users`
+-- Table `telecall_teste`.`users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `telecall_db`.`users` (
+CREATE TABLE IF NOT EXISTS `telecall_teste`.`users` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `fullname` VARCHAR(100) NOT NULL,
   `mother` VARCHAR(100) NOT NULL,
@@ -42,9 +42,14 @@ CREATE TABLE IF NOT EXISTS `telecall_db`.`users` (
   `gender` VARCHAR(3) NOT NULL,
   `cel` VARCHAR(19) NOT NULL,
   `tel_fixo` VARCHAR(18) NOT NULL,
-  `cep` VARCHAR(9) NOT NULL,
   `login` VARCHAR(6) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
+  `cep` VARCHAR(9) NOT NULL,
+  `uf` VARCHAR(2) NOT NULL,
+  `city` VARCHAR(30) CHARACTER SET 'armscii8' NOT NULL,
+  `address` VARCHAR(50) NOT NULL,
+  `house_number` INT NOT NULL,
+  `complement` VARCHAR(70) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 2

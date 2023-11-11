@@ -5,6 +5,7 @@
 
     margin: 0;
     padding: 0;
+    transition-duration: .5s;
 }
 
 :root {
@@ -41,6 +42,10 @@ a {
     cursor: pointer;
 }
 
+input:hover,
+select:hover {
+    filter: brightness(.95);
+}
 
 
 .accessibility-menu {
@@ -144,6 +149,13 @@ p,
     border-color: var(--primary-color);
 
     box-shadow: 0 0 0 0.2rem #cf2e2e70;
+}
+
+.readonly,
+.form-control:read-only {
+    filter: brightness(.9);
+    pointer-events: none;
+    touch-action: none;
 }
 
 nav {

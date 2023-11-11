@@ -1,3 +1,4 @@
+// Função para criar carregar o estilo e tema da página
 function LoadStyle() {
     const theme = localStorage.getItem( "theme" );
     const font_size = localStorage.getItem( "font_size" );
@@ -19,11 +20,7 @@ function LoadStyle() {
     }
 }
 
-function Logoff() {
-    localStorage.setItem( "isAuth", false );
-    window.location.reload();
-}
-
+// Função para mudar o tema da página
 function ChangeTheme() {
     if ( localStorage.getItem( "theme" ) == "dark" ) {
         localStorage.setItem( "theme", "light" );
@@ -34,6 +31,7 @@ function ChangeTheme() {
     window.location.reload();
 }
 
+// Função para mudar o tamanho da fonte
 function ChangeFontSize( val ) {
     localStorage.setItem( "font_size", val );
 

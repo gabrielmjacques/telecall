@@ -4,6 +4,7 @@ function onBodyLoad() {
     setContactModalMask();
 }
 
+// Função para criar o título da apresentação
 function setApresentationTitle( title ) {
     const apresentation_title = $( '.apr-container-title' );
 
@@ -21,6 +22,7 @@ function setApresentationTitle( title ) {
     }
 }
 
+// Função para criar o cursor personalizado
 function setCustomCursorPosition() {
     if ( window.innerWidth > 768 ) {
         const new_cursor = document.createElement( 'div' );
@@ -35,6 +37,7 @@ function setCustomCursorPosition() {
     }
 }
 
+// Função para criar a máscara do modal de contato
 function setContactModalMask() {
     $( "#cel_entry" ).mask( "+55 (00) 00000-0000" );
 }
