@@ -33,27 +33,31 @@ include_once '../components/NavBar.php';
 include_once '../components/accessibilityMenu.php';
 ?>
 
-    <main class="vh-100">
+    <main>
 
-        <section class="row m-0 h-100">
+        <section class="row m-0">
 
             <aside class="col-md-2 col-sm-12 p-1 shadow overflow-x-hidden">
-                <div class="row">
+                <div class="row" id="change_container_btns">
 
                     <div class="col-5 col-md-12 col-sm-5 mx-auto p-0">
-                        <button class="btn btn-danger w-100">Usuários</button>
+                        <button onclick="ChangeContainer('#users_container')" class="btn btn-danger w-100"
+                            id="users_container_btn">Usuários</button>
                     </div>
 
                     <div class="col-5 col-md-12 col-sm-5 mx-auto p-0">
-                        <button class="btn w-100">Mensagens</button>
+                        <button onclick="ChangeContainer('#messages_container')" class="btn w-100"
+                            id="messages_container_btn">Mensagens</button>
                     </div>
 
                     <div class="col-5 col-md-12 col-sm-5 mx-auto p-0">
-                        <button class="btn w-100">Log</button>
+                        <button onclick="ChangeContainer('logs_container')" class="btn w-100"
+                            id="logs_container_btn">Log</button>
                     </div>
 
                     <div class="col-5 col-md-12 col-sm-5 mx-auto p-0">
-                        <button class="btn w-100">DER</button>
+                        <button onclick="ChangeContainer('der_container')" class="btn w-100"
+                            id="der_container_btn">DER</button>
                     </div>
 
                 </div>
@@ -62,7 +66,7 @@ include_once '../components/accessibilityMenu.php';
             <div class="col-md-10 col-sm-12">
 
                 <!-- Container da Tabela de Usuários -->
-                <div class="row mt-3 d-flex flex-column align-items-center" id="users_container">
+                <section class="row mt-3 d-flex flex-column align-items-center" id="users_container">
 
                     <!-- Modal de Confirmação de Exclusão de Usuário -->
                     <div class="modal fade" id="delete_user_confirmation_modal" tabindex="-1">
@@ -92,7 +96,8 @@ include_once '../components/accessibilityMenu.php';
 
                     <div class="row">
 
-                        <div class="row mx-auto p-0">
+                        <!-- Pesquisa -->
+                        <div class="row justify-content-end p-0">
                             <div class="col-md-6 col-sm-6 p-0">
                                 <form class="input-group mb-3" id="search_user_form">
                                     <input type="text" class="form-control" placeholder="Pesquisa" name="search">
@@ -102,7 +107,8 @@ include_once '../components/accessibilityMenu.php';
                             </div>
                         </div>
 
-                        <div class="row overflow-x-scroll p-0 mx-auto" style="height: 75dvh;">
+                        <!-- Tabela de Usuários -->
+                        <div class="row overflow-x-scroll p-0 mx-auto" style="height: calc(100dvh - 70px - 75px);">
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
@@ -132,7 +138,31 @@ include_once '../components/accessibilityMenu.php';
 
                     </div>
 
-                </div>>
+                </section>
+
+                <!-- Container da Tabela de Mensagens -->
+                <section class="d-none row mt-3 d-flex flex-column align-items-center" id="messages_container">
+
+                    <div class="p-3 row overflow-x-scroll p-0 mx-auto" id="chats" style="height: calc(100dvh - 90px);">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Cliente</th>
+                                    <th scope="col">Mensagem</th>
+                                    <th scope="col">Data</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody_users" class="overflow-y-scroll">
+                                <!-- Javascript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                </section>
+
+            </div>
 
             </div>
 
@@ -154,6 +184,7 @@ include_once '../components/accessibilityMenu.php';
 
     <!-- Scripts da Página -->
     <script defer src="../js/dashboard/users.js"></script>
+    <script defer src="../js/dashboard/chats.js"></script>
 
 
 </body>

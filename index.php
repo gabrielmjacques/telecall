@@ -46,60 +46,9 @@ include_once 'components/accessibilityMenu.php';
                 <!-- Titulo adicionado dentro de /js/main_page.js -->
             </h1>
             <h3>Com a Telecall, sua empresa está pronta para um futuro de crescimento e eficiência</h3>
-            <button data-bs-toggle="modal" data-bs-target="#fale-conosco"><span>Fale conosco</span></button>
+            <a href="chat.php" data-bs-target="#fale-conosco"><span>Fale conosco</span></a>
 
             <img class="apr-wave p-0" src="assets/main_page/apr_wave.svg" alt="">
-        </div>
-
-        <!-- Modal Fale conosco -->
-        <div class="modal fade" id="fale-conosco" tabindex="-1" aria-labelledby="fale-conosco" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Fale Conosco</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form action="#" method="post" class="needs-validation" novalidate>
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="nome" class="form-label">Nome</label>
-                                <input type="text" class="form-control" id="nome" name="fullname" placeholder="Nome"
-                                    pattern="^(?!.*\s$)(?!^\s)[A-Za-zÀ-ÿ\s]{10,60}$" required
-                                    value="<?php if (isset($user['fullname'])) {echo $user['fullname'];}?>">
-
-                                <div class="invalid-feedback">Nome deve ter entre 10 e 60 caracteres</div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="celular" class="form-label">Celular</label>
-                                <input class="form-control" type="text" name="cel" id="cel_entry"
-                                    placeholder="Ex: +55 (21) 93030-1010" pattern="^.{19}$" required
-                                    value="<?php if (isset($user['cel'])) {echo $user['cel'];}?>">
-
-                                <div class="invalid-feedback">Celular inválido</div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="email" class="form-label">E-mail</label>
-                                <input type="email" class="form-control" id="email_entry" name="email"
-                                    placeholder="email@mail.com" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" required>
-
-                                <div class="invalid-feedback">E-mail inválido</div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="mensagem" class="form-label">Mensagem</label>
-                                <textarea class="form-control" id="mensagem_entry" name="message" rows="3"
-                                    minlength="40" required></textarea>
-                            </div>
-                        </div>
-                        <div class=" modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                            <button type="submit" class="btn btn-danger">Enviar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
 
         <!-- Serviços -->
