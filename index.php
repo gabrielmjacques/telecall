@@ -355,6 +355,7 @@ include_once 'components/accessibilityMenu.php';
 
     <!-- Utilitários -->
     <script defer src="js/default.js"></script>
+    <script defer src="js/util/toast.js"></script>
 
     <!-- Validação do Bootstrap -->
     <script defer>

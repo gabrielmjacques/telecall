@@ -1,17 +1,20 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['is_logged']) && !isset($_SESSION['user'])) {
+    header('Location: reglog.php?msg=Entre para acessar o chat!');
+    exit();
+}
+
 $user_id = $_SESSION['user']['id'];
 
-if (!$_SESSION['is_logged']) {
-    header('Location: reglog.php');
+if (!isset($_GET['id'])) {
+    header("Location: ?id=$user_id");
     exit();
 
-} else {
-    if (!$_SESSION['is_master'] && $user_id != $_GET['id']) {
-        header("Location: ?id=$user_id");
-        exit();
-    }
+} else if ($_GET['id'] != $user_id && !$_SESSION['is_master']) {
+    header("Location: ?id=$user_id&msg=Você não pode acessar o chat de outra pessoa!");
+    exit();
 }
 ?>
 

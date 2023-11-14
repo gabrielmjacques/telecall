@@ -13,6 +13,14 @@ $stmt_message_select = $mysqli->prepare("
 $stmt_message_select->bind_param('i', $_GET['id']);
 $stmt_message_select->execute();
 
+if ($stmt_message_select->error) {
+    echo json_encode(array(
+        'success' => false,
+        'error' => $stmt_message_select->error,
+    ));
+    return;
+}
+
 $result = $stmt_message_select->get_result();
 
 $data = array();

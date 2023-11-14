@@ -40,4 +40,10 @@ function ChangeFontSize(val) {
 
 $(document).ready(() => {
     LoadStyle();
+
+    const get_msg = new URLSearchParams(window.location.search).get("msg");
+
+    if (get_msg) {
+        ShowToast(get_msg);
+    }
 });

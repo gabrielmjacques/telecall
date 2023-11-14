@@ -18,7 +18,7 @@ USE `telecall_db` ;
 -- Table `telecall_db`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `telecall_db`.`users` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL,
   `fullname` VARCHAR(60) NOT NULL,
   `mother` VARCHAR(60) NOT NULL,
   `birth_date` DATE NOT NULL,
@@ -46,29 +46,13 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `telecall_db`.`logs` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `users_id` INT NOT NULL,
+  `user_id` INT NOT NULL,
   `log_description` VARCHAR(50) NOT NULL,
   `datatime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`, `users_id`),
-  INDEX `fk_log_users_idx` (`users_id` ASC) VISIBLE,
+  PRIMARY KEY (`id`, `user_id`),
+  INDEX `fk_log_users_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_log_users`
-    FOREIGN KEY (`users_id`)
-    REFERENCES `telecall_db`.`users` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `telecall_db`.`chats`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `telecall_db`.`chats` (
-  `idchat` INT NOT NULL,
-  `users_id` INT NOT NULL,
-  PRIMARY KEY (`idchat`),
-  INDEX `fk_chat_users1_idx` (`users_id` ASC) VISIBLE,
-  CONSTRAINT `fk_chat_users1`
-    FOREIGN KEY (`users_id`)
+    FOREIGN KEY (`user_id`)
     REFERENCES `telecall_db`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -83,12 +67,12 @@ CREATE TABLE IF NOT EXISTS `telecall_db`.`messages` (
   `message` VARCHAR(100) NOT NULL,
   `datatime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `is_master_msg` TINYINT NOT NULL,
-  `chat_idchat` INT NOT NULL,
+  `user_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_messages_chat1_idx` (`chat_idchat` ASC) VISIBLE,
-  CONSTRAINT `fk_messages_chat1`
-    FOREIGN KEY (`chat_idchat`)
-    REFERENCES `telecall_db`.`chats` (`idchat`)
+  INDEX `fk_messages_users1_idx` (`user_id` ASC) VISIBLE,
+  CONSTRAINT `fk_messages_users1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `telecall_db`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
