@@ -39,14 +39,16 @@ cep_feedback.css("display", "none");
             // se for form de login execute a função de login
             if (form.checkValidity() && form.id == 'login_form') {
                 Login(event);
+
+            } else if (form.checkValidity() && form.id == 'cadastro_form') {
+                // caso seja o form de cadastro, prossiga com o envio pelo action
+                event.target.submit();
             }
         }, false);
     });
 })();
 
-/**
- * Função para fazer o login
- */
+// Função para fazer o login
 function Login(e) {
     login_submit.html("Carregando...");
     login_submit.attr("disabled", "true");
@@ -79,6 +81,7 @@ function Login(e) {
                             break;
                         case 'birth_date':
                             tfa_answer_entry.attr("type", "date");
+                            tfa_answer_entry.attr("max", "9999-12-31");
                             break;
                     }
                 }
@@ -98,9 +101,7 @@ function Login(e) {
 
 };
 
-/**
- * Função para fazer a autenticação de dois fatores
- */
+// Função para fazer a autenticação de dois fatores
 tfa_form.on('submit', e => {
     e.preventDefault();
 
@@ -120,9 +121,7 @@ tfa_form.on('submit', e => {
         });
 });
 
-/**
- * Função para recuperar o endereço pelo CEP usando a API do ViaCEP e preencher os campos de endereço
- */
+// Função para recuperar o endereço pelo CEP usando a API do ViaCEP e preencher os campos de endereço
 async function InsertAddress() {
     if (cep_entry.val().length == 9) {
         cep_entry[0].setCustomValidity("");
@@ -181,11 +180,8 @@ async function AddCities() {
     });
 }
 
-/**
- * Função para deixar os inputs de endereço somente leitura
- * 
- * @param {boolean} bool - Se os inputs devem ser somente leitura ou não
- */
+
+// Função para deixar os inputs de endereço somente leitura
 function AddressInputsReadOnly(bool) {
     if (bool) {
         state_entry.addClass("readonly");
@@ -251,9 +247,7 @@ function DateValidation() {
     }
 }
 
-/**
- * Validação de CPF
- */
+// Validação de CPF
 function ValidateCPF() {
     const cpf_digits = cpf.val();
 
@@ -264,11 +258,7 @@ function ValidateCPF() {
     }
 }
 
-/**
- * Função para verificar se o CPF é válido
- * 
- * @param {string} cpf - CPF a ser verificado
- */
+// Função para verificar se o CPF é válido
 function VerifyCPF(cpf) {
     cpf = cpf.replace(/[^\d]+/g, '');
     if (cpf == '') return false;

@@ -109,7 +109,7 @@ body:has(.apr-container button:active) .cursor {
     transform: translateY(-7px);
 }
 
-.letter-hover:hover + span,
+.letter-hover:hover+span,
 .letter-hover:has(+ .letter-hover:hover) {
     color: #ffaaaa;
 
@@ -250,6 +250,28 @@ body:has(.apr-container button:active) .cursor {
 
 .services .card {
     cursor: pointer;
+}
+
+.card {
+    transition-duration: .5s;
+
+    box-shadow: 0 3px 10px #00000034;
+    backdrop-filter: blur(10px);
+}
+
+.card-hover:hover {
+    box-shadow: 0 3px 30px #00000034;
+    transform: translateY(-10px);
+}
+
+:has(.card:hover) .card-hover:not(:hover) {
+    opacity: .5;
+    scale: .96;
+}
+
+.card-hover:active {
+    box-shadow: 0 3px 10px #00000034;
+    transform: translateY(0px) scale(0.98);
 }
 
 .services .card .arrow {

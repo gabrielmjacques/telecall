@@ -21,7 +21,8 @@ if (isset($_SESSION['user'])) {
     <title>Página Principal - CPaaS</title>
 
     <!-- CSS Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
     <!-- CSS Padrão -->
     <link rel="stylesheet" href="default.css?v=<?php echo time(); ?>">
@@ -41,7 +42,9 @@ include_once 'components/accessibilityMenu.php';
 
         <!-- Banner -->
         <div class="apr-container p-5 pt-0 w-100">
-            <h1 class="apr-container-title"><!-- Titulo adicionado dentro de /js/main_page.js --></h1>
+            <h1 class="apr-container-title">
+                <!-- Titulo adicionado dentro de /js/main_page.js -->
+            </h1>
             <h3>Com a Telecall, sua empresa está pronta para um futuro de crescimento e eficiência</h3>
             <button data-bs-toggle="modal" data-bs-target="#fale-conosco"><span>Fale conosco</span></button>
 
@@ -60,39 +63,39 @@ include_once 'components/accessibilityMenu.php';
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label for="nome" class="form-label">Nome</label>
-                                <input type="text" class="form-control" id="nome" name="fullname" placeholder="Nome" pattern="^(?!.*\s$)(?!^\s)[A-Za-zÀ-ÿ\s]{10,60}$" required value="<?php if (isset($user['fullname'])) {
-    echo $user['fullname'];
-}
-?>">
+                                <input type="text" class="form-control" id="nome" name="fullname" placeholder="Nome"
+                                    pattern="^(?!.*\s$)(?!^\s)[A-Za-zÀ-ÿ\s]{10,60}$" required
+                                    value="<?php if (isset($user['fullname'])) {echo $user['fullname'];}?>">
 
                                 <div class="invalid-feedback">Nome deve ter entre 10 e 60 caracteres</div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="celular" class="form-label">Celular</label>
-                                <input class="form-control" type="text" name="cel" id="cel_entry" placeholder="Ex: +55 (21) 93030-1010" pattern="^.{19}$" required value="<?php if (isset($user['cel'])) {
-    echo $user['cel'];
-}
-?>">
+                                <input class="form-control" type="text" name="cel" id="cel_entry"
+                                    placeholder="Ex: +55 (21) 93030-1010" pattern="^.{19}$" required
+                                    value="<?php if (isset($user['cel'])) {echo $user['cel'];}?>">
 
                                 <div class="invalid-feedback">Celular inválido</div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="email" class="form-label">E-mail</label>
-                                <input type="email" class="form-control" id="email_entry" name="email" placeholder="email@mail.com" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" required>
+                                <input type="email" class="form-control" id="email_entry" name="email"
+                                    placeholder="email@mail.com" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" required>
 
                                 <div class="invalid-feedback">E-mail inválido</div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="mensagem" class="form-label">Mensagem</label>
-                                <textarea class="form-control" id="mensagem_entry" name="message" rows="3" minlength="40" required></textarea>
+                                <textarea class="form-control" id="mensagem_entry" name="message" rows="3"
+                                    minlength="40" required></textarea>
                             </div>
                         </div>
                         <div class=" modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                            <button type="submit" class="btn btn-primary">Enviar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-danger">Enviar</button>
                         </div>
                     </form>
                 </div>
@@ -109,7 +112,8 @@ include_once 'components/accessibilityMenu.php';
             <div class="row justify-content-center p-3 mt-5 mb-5 gap-3">
 
                 <!-- 2FA -->
-                <div class="card card-hover bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5" style="--bs-bg-opacity: .4;" data-bs-toggle="offcanvas" data-bs-target="#2fa-offcanvas">
+                <div class="card card-hover bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5"
+                    style="--bs-bg-opacity: .4;" data-bs-toggle="offcanvas" data-bs-target="#2fa-offcanvas">
                     <div class="d-flex align-items-center justify-content-between">
                         <h3>2FA</h3>
                         <img src="assets/icons/2fa.svg" width="70px" alt="">
@@ -122,7 +126,8 @@ include_once 'components/accessibilityMenu.php';
                 </div>
 
                 <!-- Numero Máscara -->
-                <div class="card card-hover bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5" style="--bs-bg-opacity: .4;" data-bs-toggle="offcanvas" data-bs-target="#nummask-offcanvas">
+                <div class="card card-hover bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5"
+                    style="--bs-bg-opacity: .4;" data-bs-toggle="offcanvas" data-bs-target="#nummask-offcanvas">
                     <div class="d-flex align-items-center justify-content-between">
                         <h3>Número Máscara</h3>
                         <img src="assets/icons/nummask.svg" width="70px" alt="">
@@ -134,7 +139,8 @@ include_once 'components/accessibilityMenu.php';
                 </div>
 
                 <!-- SMS Programado -->
-                <div class="card card-hover bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5" style="--bs-bg-opacity: .4;" data-bs-toggle="offcanvas" data-bs-target="#smsprog-offcanvas">
+                <div class="card card-hover bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5"
+                    style="--bs-bg-opacity: .4;" data-bs-toggle="offcanvas" data-bs-target="#smsprog-offcanvas">
                     <div class="d-flex align-items-center justify-content-between">
                         <h3>SMS Programado</h3>
                         <img src="assets/icons/smsprog.svg" width="70px" alt="">
@@ -146,7 +152,8 @@ include_once 'components/accessibilityMenu.php';
                     <div class="arrow"><img class="icons" src="assets/icons/arrow.svg" alt=""></div>
                 </div>
 
-                <div class="card card-hover bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5" style="--bs-bg-opacity: .4;" data-bs-toggle="offcanvas" data-bs-target="#verify-offcanvas">
+                <div class="card card-hover bg-body d-flex flex-column justify-content-between col-lg-4 col-xxl-2 col-sm-12 p-3 rounded-5"
+                    style="--bs-bg-opacity: .4;" data-bs-toggle="offcanvas" data-bs-target="#verify-offcanvas">
                     <div class="d-flex align-items-center justify-content-between">
                         <h3>Google Verified Calls</h3>
                         <img src="assets/icons/verify.svg" width="70px" alt="">
@@ -384,7 +391,9 @@ include_once 'components/accessibilityMenu.php';
 
 
     <!-- JavaScript Bootstrap -->
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    </script>
 
     <!-- JQuery -->
     <script defer src="js/jquery.js"></script>
@@ -400,24 +409,24 @@ include_once 'components/accessibilityMenu.php';
 
     <!-- Validação do Bootstrap -->
     <script defer>
-        (() => {
-            'use strict'
+    (() => {
+        'use strict'
 
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            const forms = document.querySelectorAll('.needs-validation')
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
 
-            // Loop over them and prevent submission
-            Array.from(forms).forEach(form => {
-                form.addEventListener('submit', event => {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
 
-                    form.classList.add('was-validated')
-                }, false)
-            })
-        })()
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
     </script>
 </body>
 

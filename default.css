@@ -5,7 +5,6 @@
 
     margin: 0;
     padding: 0;
-    transition-duration: .5s;
 }
 
 :root {
@@ -45,6 +44,10 @@ a {
 input:hover,
 select:hover {
     filter: brightness(.95);
+}
+
+table {
+    white-space: nowrap;
 }
 
 
@@ -233,23 +236,6 @@ p,
     color: white;
 }
 
-.card {
-    transition-duration: .5s;
-
-    box-shadow: 0 3px 10px #00000034;
-    backdrop-filter: blur(10px);
-}
-
-.card-hover:hover {
-    box-shadow: 0 3px 30px #00000034;
-    transform: translateY(-10px);
-}
-
-.card-hover:active {
-    box-shadow: 0 3px 10px #00000034;
-    transform: translateY(0px) scale(0.98);
-}
-
 .offcanvas-backdrop.show {
     background-color: #0f172a80;
 
@@ -283,6 +269,10 @@ html:has(.offcanvas-backdrop.show) {
 
 .toast {
     z-index: 1056;
+}
+
+.modal {
+    backdrop-filter: blur(3px);
 }
 
 

@@ -53,8 +53,8 @@ include_once 'components/accessibilityMenu.php'; // Inclui o menu de acessibilid
                                     <h4 id="2fa_question">Pergunta de Segurança:</h4>
 
                                     <div class=" form-group mb-3">
-                                        <input class="form-control" type="text" name="2fa_answer"
-                                            id="2fa_answer_entry" required>
+                                        <input class="form-control" type="text" name="2fa_answer" id="2fa_answer_entry"
+                                            required>
 
                                         <input type="hidden" id="2fa_column_entry" name="2fa_column">
                                     </div>
@@ -138,7 +138,8 @@ include_once 'components/accessibilityMenu.php'; // Inclui o menu de acessibilid
                         </div>
 
                         <!-- Cadastro -->
-                        <form class="needs-validation" novalidate method="post" action="backend/processar_registro.php">
+                        <form class="needs-validation" id="cadastro_form" novalidate method="post"
+                            action="backend/processar_registro.php">
 
                             <!-- Nome e Nascimento -->
                             <div class="row mb-3">
@@ -376,7 +377,7 @@ include_once 'components/accessibilityMenu.php'; // Inclui o menu de acessibilid
     <!-- Bootstrap JS -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-        </script>
+    </script>
 
     <!-- JQuery e JQuery Mask Plugins -->
     <script defer src="js/jquery.js"></script>

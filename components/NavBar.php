@@ -6,7 +6,7 @@ $is_master = isset($_SESSION['is_master']) ? $_SESSION['is_master'] : false;
 
 <nav class="navbar navbar-expand-lg  navbar-dark p-0">
     <div class="container-fluid p-0">
-        <a href="./" class="logo">
+        <a href="/telecall" class="logo">
             <img src="/telecall/assets/logo.png" alt="Logo da Telecall">
         </a>
 
