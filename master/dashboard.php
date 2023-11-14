@@ -37,7 +37,7 @@ include_once '../components/accessibilityMenu.php';
 
         <section class="row m-0 h-100">
 
-            <aside class="col-md-2 col-sm-12 p-1 shadow">
+            <aside class="col-md-2 col-sm-12 p-1 shadow overflow-x-hidden">
                 <div class="row">
 
                     <div class="col-5 col-md-12 col-sm-5 mx-auto p-0">
@@ -59,10 +59,12 @@ include_once '../components/accessibilityMenu.php';
                 </div>
             </aside>
 
-            <!-- Container da Tabela de Usuários -->
             <div class="col-md-10 col-sm-12">
 
+                <!-- Container da Tabela de Usuários -->
                 <div class="row mt-3 d-flex flex-column align-items-center" id="users_container">
+
+                    <!-- Modal de Confirmação de Exclusão de Usuário -->
                     <div class="modal fade" id="delete_user_confirmation_modal" tabindex="-1">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
@@ -90,8 +92,8 @@ include_once '../components/accessibilityMenu.php';
 
                     <div class="row">
 
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
+                        <div class="row mx-auto p-0">
+                            <div class="col-md-6 col-sm-6 p-0">
                                 <form class="input-group mb-3" id="search_user_form">
                                     <input type="text" class="form-control" placeholder="Pesquisa" name="search">
                                     <button class="btn btn-outline-secondary" type="button" id="search_btn"><i
@@ -129,7 +131,8 @@ include_once '../components/accessibilityMenu.php';
                         </div>
 
                     </div>
-                </div>
+
+                </div>>
 
             </div>
 
@@ -150,7 +153,7 @@ include_once '../components/accessibilityMenu.php';
     <script defer src="../js/util/toast.js"></script>
 
     <!-- Scripts da Página -->
-    <script defer src="../js/dashboard.js"></script>
+    <script defer src="../js/dashboard/users.js"></script>
 
 
 </body>

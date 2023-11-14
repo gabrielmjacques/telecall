@@ -146,7 +146,8 @@ p,
     font-size: calc(var(--font-size) - 3px);
 }
 
-.invalid-feedback {
+.invalid-feedback,
+a.dropdown-item {
     font-size: calc(var(--font-size) - 5px);
 }
 
@@ -227,7 +228,6 @@ p,
     font-weight: bold;
     color: black;
 
-    font-size: 0.8em;
     transition: .2s;
 }
 
