@@ -117,9 +117,17 @@ include_once 'components/accessibilityMenu.php'; // Inclui o menu de acessibilid
                         </div>
                     </form>
 
-                    <!-- Mostrar aba de cadastro -->
-                    <button type="button" class="show_cad_btn btn btn-sm w-100" onclick="ShowCad()">Não tenho conta,
-                        quero me cadastrar!</button>
+                    <div class="row">
+                        <!-- Mostrar aba de cadastro -->
+                        <div class="col-6">
+                            <button type="button" class="show_cad_btn btn btn-sm w-100" onclick="ShowCad()">Não tenho
+                                conta, quero me cadastrar!</button>
+                        </div>
+
+                        <div class="col-6">
+                            <button type="reset" class="btn btn-sm w-100" onclick='ResetForm()'>Limpar</button>
+                        </div>
+                    </div>
                 </div>
 
 
@@ -343,10 +351,18 @@ include_once 'components/accessibilityMenu.php'; // Inclui o menu de acessibilid
                             </div>
                         </form>
 
-                        <!-- Fechar aba de cadastro -->
-                        <button type="button" class="hide_cad_btn btn btn-sm w-100" onclick="HideCad()">Já possuo
-                            conta, quero
-                            entrar!</button>
+                        <div class="row">
+                            <!-- Mostrar aba de cadastro -->
+                            <div class="col-6">
+                                <button type="button" class="show_cad_btn btn btn-sm w-100" onclick="HideCad()">Já tenho
+                                    conta, quero
+                                    fazer login!</button>
+                            </div>
+
+                            <div class="col-6">
+                                <button type="reset" class="btn btn-sm w-100" onclick='ResetForm()'>Limpar</button>
+                            </div>
+                        </div>
 
                     </div>
 
@@ -375,21 +391,21 @@ include_once 'components/accessibilityMenu.php'; // Inclui o menu de acessibilid
     </div>
 
     <!-- Bootstrap JS -->
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
 
     <!-- JQuery e JQuery Mask Plugins -->
-    <script defer src="js/jquery.js"></script>
-    <script defer src="js/jquery.mask.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mask.js"></script>
 
     <!-- Utilitários -->
-    <script defer src="js/default.js"></script>
-    <script defer src="js/util/locals.js"></script>
-    <script defer src="js/util/toast.js"></script>
+    <script src="js/default.js"></script>
+    <script src="js/util/locals.js"></script>
+    <script src="js/util/toast.js"></script>
 
     <!-- Javascript Externo da Página -->
-    <script defer src="js/login.js"></script>
+    <script src="js/login.js"></script>
 
 </body>
 

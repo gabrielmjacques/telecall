@@ -4,6 +4,7 @@ const login_form = $("#login_form");
 const login_submit = $("#login_form_submit");
 const tfa_form = $("#2fa_form");
 const cadastro_div = $("#cadastro_div");
+const cadastro_form = $("#cadastro_form");
 const TFAModal = new bootstrap.Modal('#tfa_modal');
 const tfa_answer_entry = $('#2fa_answer_entry');
 const tfa_column_entry = $('#2fa_column_entry');
@@ -180,7 +181,6 @@ async function AddCities() {
     });
 }
 
-
 // Função para deixar os inputs de endereço somente leitura
 function AddressInputsReadOnly(bool) {
     if (bool) {
@@ -247,6 +247,13 @@ function DateValidation() {
     }
 }
 
+function ResetForm() {
+    cadastro_form[0].reset();
+    login_form[0].reset();
+
+    ShowToast("Formulário resetado");
+}
+
 // Validação de CPF
 function ValidateCPF() {
     const cpf_digits = cpf.val();
@@ -294,7 +301,7 @@ function VerifyCPF(cpf) {
     if (rev != parseInt(cpf.charAt(10)))
         return false;
     return true;
-}
+};
 
 // Inserindo estados no select
 for (let i = 0; i < states_abbrs.length; i++) {
