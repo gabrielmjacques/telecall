@@ -7,7 +7,9 @@ main {
     display: flex;
     flex-direction: column;
     overflow: scroll;
+    background-image: url("../assets/bg-texture.png");
 
+    background-size: 20px;
     padding: 30px;
     gap: 30px;
 }
@@ -19,6 +21,7 @@ main {
     padding: 10px 20px;
     border-radius: 20px;
 
+    border: 1px solid #00000030;
     box-shadow: 0 0 10px #00000055;
 }
 

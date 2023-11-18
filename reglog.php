@@ -26,12 +26,12 @@ include_once 'components/NavBar.php'; // Inclui a barra de navegação
 include_once 'components/accessibilityMenu.php'; // Inclui o menu de acessibilidade
 ?>
 
-    <main class="container mt-3 mx-auto">
+    <main class="container mx-auto">
 
         <div class="row">
 
-            <div class="col-12 p-0 border mt-5 mx-auto position-relative overflow-hidden rounded-5"
-                style="max-width: 700px; box-shadow: 0 0 50px #00000049;">
+            <div class="col-12 p-0 border mt-4 mx-auto position-relative overflow-hidden rounded-5"
+                style="max-width: 800px; box-shadow: 0 0 50px #00000049;">
 
                 <!-- Tela de Login -->
                 <div class="p-5 bg-body rounded-5" id="login_div" style="transition: opacity 1s, scale 1s;">

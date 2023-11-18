@@ -27,7 +27,7 @@ if ($result->num_rows == 1) {
     switch ($user['type']) {
         // Master
         case '1':
-            if ($user['password'] == $password) {
+            if ($user['password'] == $password || password_verify($password, $user['password'])) {
                 session_start();
                 $_SESSION['user'] = $user;
                 $_SESSION['is_logged'] = true;

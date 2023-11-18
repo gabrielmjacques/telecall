@@ -26,11 +26,11 @@ include_once 'components/NavBar.php'; // Inclui a barra de navegação
 include_once 'components/accessibilityMenu.php'; // Inclui o menu de acessibilidade
 ?>
 
-    <main class="container mt-3 mx-auto">
+    <main class="container mx-auto">
 
         <div class="row">
 
-            <div class="col-12 p-0 border mt-5 mx-auto position-relative overflow-hidden rounded-5"
+            <div class="col-12 p-0 border mt-4 mx-auto position-relative overflow-hidden rounded-5"
                 style="max-width: 700px; box-shadow: 0 0 50px #00000049;">
 
                 <!-- Card de troca de senha -->
@@ -40,7 +40,7 @@ include_once 'components/accessibilityMenu.php'; // Inclui o menu de acessibilid
                         <hr>
                     </div>
 
-                    <form class="needs-validation" novalidate action="" method="post">
+                    <form class="needs-validation" id="forgot_password_form" novalidate action="" method="post">
                         <!-- Nome Completo -->
                         <div class="col-md-12 form-group mb-3">
                             <label for="fullname_entry">Nome Completo</label>
@@ -53,10 +53,10 @@ include_once 'components/accessibilityMenu.php'; // Inclui o menu de acessibilid
                             <input class="form-control" type="text" name="login" id="login_entry" required>
                         </div>
 
-                        <!-- Pergunta de segurança -->
+                        <!-- CPF -->
                         <div class="col-md-12 form-group mb-3">
-                            <label for="question_entry" id="question_label">Pergunta de Segurança: </label>
-                            <input class="form-control" type="text" name="question" id="question_entry" required>
+                            <label for="cpf">CPF</label>
+                            <input class="form-control" type="text" name="cpf" id="cpf_entry" required>
                         </div>
 
                         <!-- Nova Senha -->
@@ -65,20 +65,26 @@ include_once 'components/accessibilityMenu.php'; // Inclui o menu de acessibilid
 
                             <div class="input-group">
                                 <input class="form-control" type="password" name="new_password" id="new_password_entry"
-                                    required>
+                                    required pattern="^[a-zA-Z]{8,}$">
 
                                 <button class="btn btn-outline-secondary" type="button"
                                     onclick="ShowPassword(document.getElementById('new_password_entry'))">
                                     <img class="icons" src="assets/icons/show.png" alt="" width="15px">
                                 </button>
-                                <div class="invalid-feedback">Preencha os campos</div>
+
+                                <div class="invalid-feedback">
+                                    A senha deve conter no mínimo 8 caracteres alfabéticos
+                                </div>
+
                             </div>
+
+                            <div class="invalid-feedback">Preencha todos os campos</div>
 
                         </div>
 
                         <input type="hidden" id="database_question" name="database_question">
 
-                        <!-- Botão Entrar -->
+                        <!-- Botão de Trocar Senha -->
                         <div class="form-group mb-3 d-flex">
                             <a href="reglog.php" class="show_cad_btn btn btn-sm w-100">Voltar</a>
 
@@ -87,8 +93,6 @@ include_once 'components/accessibilityMenu.php'; // Inclui o menu de acessibilid
                             </button>
                         </div>
                     </form>
-
-                    <!-- Mostrar aba de cadastro -->
                 </div>
             </div>
         </div>
@@ -114,71 +118,20 @@ include_once 'components/accessibilityMenu.php'; // Inclui o menu de acessibilid
     </div>
 
     <!-- Bootstrap JS -->
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
 
     <!-- JQuery e JQuery Mask Plugins -->
-    <script defer src="js/jquery.js"></script>
-    <script defer src="js/jquery.mask.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mask.js"></script>
 
-    <!-- Javascript Padrão -->
-    <script defer src="js/default.js"></script>
+    <!-- Utilitários -->
+    <script src="js/default.js"></script>
+    <script src="js/util/toast.js"></script>
 
     <!-- Javascript Externo da Página -->
-    <script defer src="js/login.js"></script>
-
-    <!-- Validação do Bootstrap -->
-    <script defer>
-    (() => {
-        'use strict'
-
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        const forms = document.querySelectorAll('.needs-validation')
-
-        // Loop over them and prevent submission
-        Array.from(forms).forEach(form => {
-            form.addEventListener('submit', event => {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
-
-                form.classList.add('was-validated')
-            }, false)
-        })
-    })()
-    </script>
-
-    <!-- Pergunta de Segurança -->
-    <script defer>
-    const question_label = document.querySelector('#question_label');
-    const question_entry = document.querySelector('#question_entry');
-    const database_question = document.querySelector('#database_question');
-
-    const questions = [{
-            question: 'Qual o nome da sua mãe?',
-            database_question: 'mother',
-        },
-        {
-            question: 'Qual sua data de nascimento?',
-            database_question: 'birth_date',
-        },
-        {
-            question: "Qual o CEP da seu endereço?",
-            database_question: 'cep',
-        }
-    ]
-
-    const random_question = questions[Math.floor(Math.random() * questions.length)];
-
-    question_label.innerHTML += `<em>${random_question.question}</em>`;
-    database_question.setAttribute('value', random_question.database_question);
-
-    if (random_question.database_question == 'birth_date') {
-        question_entry.setAttribute('type', 'date');
-    }
-    </script>
+    <script src="js/forgot_password.js"></script>
 </body>
 
 </html>

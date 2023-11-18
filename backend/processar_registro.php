@@ -1,7 +1,7 @@
 <?php
 
-include('mysql_conn.php');
-include_once('utilitaries.php');
+include 'mysql_conn.php';
+include_once 'utilitaries.php';
 
 // Variaveis do formulario
 $fullname = $_POST['fullname'];
@@ -42,11 +42,13 @@ if ($stmt_check->num_rows() == 1) {
 
     $stmt_insert = $mysqli->prepare($sql_query);
     $stmt_insert->bind_param("sssssssssssssis", $fullname, $birth_date, $mother, $cpf, $gender, $cel, $tel_fixo, $cep, $login, $password, $state, $city, $address, $number, $complement);
-    
+
     $stmt_insert->execute();
 
-    $stmt_insert->close();
-    $stmt_check->close();
+    if ($stmt_insert->affected_rows != 1) {
+        var_dump($stmt_insert->error);
+        die();
+    }
 
     RedirectTo('success', 'Usuário cadastrado com sucesso! Faça login', '../reglog.php');
 }
