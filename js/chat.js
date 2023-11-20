@@ -13,6 +13,7 @@ function InsertMessages(messages) {
         screen_container.append(`
         <div class="message-container ${author == 'Telecall' ? 'telecall' : 'me'}">
             <div class="message-header">
+                ${author == "Telecall" ? '<img src="assets/favicon.png" />' : ""}
                 <p>${author}</p>
             </div>
 

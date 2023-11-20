@@ -46,13 +46,13 @@ include_once 'components/accessibilityMenu.php';
     <main class="col-12 d-flex flex-column justify-content-between">
 
         <div id="screen">
-
+            <!-- Container de mensagens -->
         </div>
 
-        <div class="" id="inputs">
-            <form class="input-group mb-3 h-100" id="send_message_form">
+        <div id="inputs">
+            <form class="input-group h-100" id="send_message_form">
                 <input type="text" class="form-control" name="message" id="message_entry"
-                    placeholder="Digite sua mensagem!" autocomplete="off">
+                    placeholder="Digite sua mensagem" autocomplete="off">
                 <button class="btn btn-danger" type="button" id="button-addon2">Enviar</button>
 
                 <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">

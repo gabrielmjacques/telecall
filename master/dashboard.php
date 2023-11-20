@@ -97,8 +97,8 @@ include_once '../components/accessibilityMenu.php';
                     <div class="row">
 
                         <!-- Pesquisa -->
-                        <div class="row justify-content-end p-0">
-                            <div class="col-md-6 col-sm-6 p-0">
+                        <div class="row justify-content-end w-100 p-0">
+                            <div class="col-10 mx-auto p-0">
                                 <form class="input-group mb-3" id="search_user_form">
                                     <input type="text" class="form-control" placeholder="Pesquisa" name="search">
                                     <button class="btn btn-outline-secondary" type="button" id="search_btn"><i
@@ -108,7 +108,7 @@ include_once '../components/accessibilityMenu.php';
                         </div>
 
                         <!-- Tabela de Usuários -->
-                        <div class="row overflow-x-scroll p-0 mx-auto" style="height: calc(100dvh - 70px - 75px);">
+                        <div class="row overflow-x-scroll p-0 mx-auto px-0" style="height: calc(100dvh - 70px - 75px);">
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
@@ -143,13 +143,14 @@ include_once '../components/accessibilityMenu.php';
                 <!-- Container da Tabela de Mensagens -->
                 <section class="d-none row mt-3 d-flex flex-column align-items-center" id="messages_container">
 
-                    <div class="p-3 row overflow-x-scroll p-0 mx-auto" id="chats" style="height: calc(100dvh - 90px);">
+                    <div class="row p-3 row overflow-x-scroll p-0 mx-auto" id="chats"
+                        style="height: calc(100dvh - 100px);">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Cliente</th>
                                     <th scope="col">Mensagem</th>
+                                    <th scope="col">Cliente</th>
                                     <th scope="col">Data</th>
                                     <th scope="col"></th>
                                 </tr>

@@ -147,7 +147,9 @@ p,
 }
 
 .invalid-feedback,
-a.dropdown-item {
+a.dropdown-item,
+td,
+th {
     font-size: calc(var(--font-size) - 5px);
 }
 

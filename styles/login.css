@@ -1,7 +1,10 @@
 body {
     background-image: url('../assets/bg-texture.png');
 
-    background-size: 30px;
+    background-size: 100px;
+
+    backdrop-filter: contrast(0.1) brightness(1.7);
+
 }
 
 .container-cad {

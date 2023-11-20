@@ -11,8 +11,8 @@ function InsertChats(messages) {
         $(messages_table_tbody).append(`
             <tr>
                 <td>${message.id}</td>
-                <td>${message.fullname}</td>
                 <td>${formatted_message}</td>
+                <td>${message.fullname}</td>
                 <td>${formatted_date}</td>
                 <td>
                     <a href="../chat.php?id=${message.user_id}" class="btn">Ver</a>
