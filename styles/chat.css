@@ -18,9 +18,29 @@ main {
     backdrop-filter: contrast(0.1) brightness(1.7);
 }
 
+#screen .date-container {
+    display: flex;
+    justify-content: center;
+
+    padding-top: 17px;
+
+    border-top: 1px solid #00000030;
+}
+
+#screen .date-container p {
+    font-weight: bold;
+    color: #00000080;
+    background-color: #00000010;
+
+    border-radius: 20px;
+    padding: 7px 20px;
+}
+
 #screen .message-container {
     width: fit-content;
+    word-wrap: break-word;
 
+    max-width: 75vw;
     min-width: 130px;
     padding: 10px 20px;
     border-radius: 20px;

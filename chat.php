@@ -1,4 +1,6 @@
 <?php
+include 'backend/utilitaries.php';
+
 session_start();
 
 if (!isset($_SESSION['is_logged']) && !isset($_SESSION['user'])) {
@@ -16,6 +18,8 @@ if (!isset($_GET['id'])) {
     header("Location: ?id=$user_id&msg=Você não pode acessar o chat de outra pessoa!");
     exit();
 }
+
+$user_chat = GetUserById($_GET['id']);
 ?>
 
 <!DOCTYPE html>
@@ -44,6 +48,14 @@ include_once 'components/accessibilityMenu.php';
 ?>
 
     <main class="col-12 d-flex flex-column justify-content-between">
+
+        <?php if (isset($_SESSION["is_master"]) && $_SESSION["is_master"]): ?>
+
+        <div class="row bg-light py-1 pt-2 shadow">
+            <h3 class="text-center"><?php echo $user_chat["fullname"] ?></h3>
+        </div>
+
+        <?php endif;?>
 
         <div id="screen">
             <!-- Container de mensagens -->

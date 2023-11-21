@@ -70,6 +70,7 @@ function Login(e) {
 
                 } else {
                     // Abre o modal de autenticação de dois fatores
+                    tfa_answer_entry.val("");
                     TFAModal.show();
 
                     // Preenche o modal com a pergunta de segurança e o nome da coluna
@@ -79,10 +80,18 @@ function Login(e) {
                     switch (res.column) {
                         case 'cep':
                             tfa_answer_entry.mask("00000-000");
+
                             break;
                         case 'birth_date':
                             tfa_answer_entry.attr("type", "date");
                             tfa_answer_entry.attr("max", "9999-12-31");
+                            tfa_answer_entry.unmask();
+
+                            break;
+                        default:
+                            tfa_answer_entry.attr("type", "text");
+                            tfa_answer_entry.unmask();
+
                             break;
                     }
                 }

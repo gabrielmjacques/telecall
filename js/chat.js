@@ -6,8 +6,30 @@ const send_message_form = $("#send_message_form");
 function InsertMessages(messages) {
     screen_container.html("");
 
-    messages.forEach(message => {
-        const time = message.datatime.split(" ")[1].slice(0, 5);
+    let last_date = new Date(messages[0].datatime);
+
+    messages.forEach((message, i) => {
+        const date = new Date(message.datatime);
+
+        if (i == 0) {
+            screen_container.append(`
+            <div class="date-container">
+                <p>${date.toLocaleDateString()}</p>
+            </div>
+            `);
+        }
+
+        if (date.getDate() > last_date.getDate()) {
+            screen_container.append(`
+            <div class="date-container">
+                <p>${date.toLocaleDateString()}</p>
+            </div>
+            `);
+
+            last_date = date;
+        }
+
+        const time = date.toLocaleTimeString().slice(0, 5);
         let author = message.is_master_msg == 1 ? "Telecall" : "";
 
         screen_container.append(`
@@ -35,6 +57,7 @@ function GetAllMessages() {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
+                console.log(`Total de mensagens: ${data.messages.length}`);
                 InsertMessages(data.messages);
             }
         })
