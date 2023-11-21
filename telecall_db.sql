@@ -18,28 +18,25 @@ USE `telecall_db` ;
 -- Table `telecall_db`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `telecall_db`.`users` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `fullname` VARCHAR(60) NOT NULL,
-  `mother` VARCHAR(60) NOT NULL,
+  `mother` VARCHAR(60) COLLATE 'utf8mb3_unicode_ci' NOT NULL,
   `birth_date` DATE NOT NULL,
-  `cpf` VARCHAR(14) NOT NULL,
-  `gender` VARCHAR(10) NOT NULL,
-  `cel` VARCHAR(19) NOT NULL,
-  `tel_fixo` VARCHAR(18) NOT NULL,
-  `login` VARCHAR(6) NOT NULL,
-  `password` VARCHAR(100) NOT NULL,
-  `cep` VARCHAR(9) NOT NULL,
-  `uf` VARCHAR(2) NOT NULL,
-  `city` VARCHAR(30) CHARACTER SET 'armscii8' NOT NULL,
-  `address` VARCHAR(50) NOT NULL,
+  `cpf` VARCHAR(14) COLLATE 'utf8mb3_unicode_ci' NOT NULL,
+  `gender` VARCHAR(10) COLLATE 'utf8mb3_unicode_ci' NOT NULL,
+  `cel` VARCHAR(19) COLLATE 'utf8mb3_unicode_ci' NOT NULL,
+  `tel_fixo` VARCHAR(18) COLLATE 'utf8mb3_unicode_ci' NOT NULL,
+  `login` VARCHAR(6) COLLATE 'utf8mb3_unicode_ci' NOT NULL,
+  `password` VARCHAR(100) COLLATE 'utf8mb3_unicode_ci' NOT NULL,
+  `cep` VARCHAR(9) COLLATE 'utf8mb3_unicode_ci' NOT NULL,
+  `uf` VARCHAR(2) COLLATE 'utf8mb3_unicode_ci' NOT NULL,
+  `city` VARCHAR(30) CHARACTER SET 'utf8mb3' NOT NULL,
+  `address` VARCHAR(50) COLLATE 'utf8mb3_unicode_ci' NOT NULL,
   `house_number` INT NOT NULL,
-  `complement` VARCHAR(50) NOT NULL,
+  `complement` VARCHAR(50) COLLATE 'utf8mb3_unicode_ci' NOT NULL,
   `type` TINYINT NOT NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 2
-DEFAULT CHARACTER SET = utf8mb3;
-
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `telecall_db`.`logs`
@@ -53,10 +50,9 @@ CREATE TABLE IF NOT EXISTS `telecall_db`.`logs` (
   INDEX `fk_log_users_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_log_users`
     FOREIGN KEY (`user_id`)
-    REFERENCES `telecall_db`.`users` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `telecall_db`.`users` (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
 
 
 -- -----------------------------------------------------
@@ -72,10 +68,9 @@ CREATE TABLE IF NOT EXISTS `telecall_db`.`messages` (
   INDEX `fk_messages_users1_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_messages_users1`
     FOREIGN KEY (`user_id`)
-    REFERENCES `telecall_db`.`users` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `telecall_db`.`users` (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

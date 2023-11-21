@@ -1,6 +1,6 @@
 // Elementos
 const users_container = $('#users_container');
-const tbody_users = $('#tbody_users');
+const tbody_users = $('#users_container table tbody');
 const search_user_form = $('#search_user_form');
 const delete_user_modal = new bootstrap.Modal('#delete_user_confirmation_modal');
 

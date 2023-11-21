@@ -51,12 +51,12 @@ include_once '../components/accessibilityMenu.php';
                     </div>
 
                     <div class="col-5 col-md-12 col-sm-5 mx-auto p-0">
-                        <button onclick="ChangeContainer('logs_container')" class="btn w-100"
+                        <button onclick="ChangeContainer('#logs_container')" class="btn w-100"
                             id="logs_container_btn">Log</button>
                     </div>
 
                     <div class="col-5 col-md-12 col-sm-5 mx-auto p-0">
-                        <button onclick="ChangeContainer('der_container')" class="btn w-100"
+                        <button onclick="ChangeContainer('#der_container')" class="btn w-100"
                             id="der_container_btn">DER</button>
                     </div>
 
@@ -130,7 +130,7 @@ include_once '../components/accessibilityMenu.php';
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
-                                <tbody id="tbody_users">
+                                <tbody>
                                     <!-- Javascript -->
                                 </tbody>
                             </table>
@@ -155,7 +155,41 @@ include_once '../components/accessibilityMenu.php';
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
-                            <tbody id="tbody_users" class="overflow-y-scroll">
+                            <tbody class="overflow-y-scroll">
+                                <!-- Javascript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                </section>
+
+                <!-- Container da Tabela de Logs -->
+                <section class="d-none row mt-3 d-flex flex-column align-items-center" id="logs_container">
+
+                    <!-- Ordem -->
+                    <div class="row justify-content-end w-100 p-0">
+                        <div class="col-10 mx-auto p-0">
+                            <select class="form-select" aria-label="Default select example" id="logs_order"
+                                onchange="ChangeLogsOrder()">
+                                <option value="DESC" selected>Mais Recente</option>
+                                <option value="ASC">Mais Antigo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row p-3 row overflow-x-scroll p-0 mx-auto" id="chats"
+                        style="height: calc(100dvh - 100px);">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">ID de Cliente</th>
+                                    <th scope="col">Cliente</th>
+                                    <th scope="col">Descrição</th>
+                                    <th scope="col">Data</th>
+                                </tr>
+                            </thead>
+                            <tbody class="overflow-y-scroll">
                                 <!-- Javascript -->
                             </tbody>
                         </table>
@@ -184,8 +218,10 @@ include_once '../components/accessibilityMenu.php';
     <script defer src="../js/util/toast.js"></script>
 
     <!-- Scripts da Página -->
+    <script defer src="../js/dashboard/dashboard.js"></script>
     <script defer src="../js/dashboard/users.js"></script>
     <script defer src="../js/dashboard/chats.js"></script>
+    <script defer src="../js/dashboard/logs.js"></script>
 
 
 </body>

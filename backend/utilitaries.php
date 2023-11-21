@@ -43,3 +43,16 @@ function GetUserById(int $id)
         return false;
     }
 }
+
+function CreateLog($user_id, $log_description)
+{
+    global $mysqli;
+
+    if (isset($_SESSION['user']) && $_SESSION["user"]["type"] == 1) {
+        return;
+    }
+
+    $stmt_insert = $mysqli->prepare("INSERT INTO logs (user_id, log_description) VALUES (?, ?)");
+    $stmt_insert->bind_param("is", $user_id, $log_description);
+    $stmt_insert->execute();
+}

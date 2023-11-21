@@ -3,6 +3,7 @@
 header('Content-Type: application/json');
 
 include '../mysql_conn.php';
+include '../utilitaries.php';
 
 $cpf = $_POST['cpf'];
 $login = $_POST['login'];
@@ -26,6 +27,8 @@ if ($result->num_rows != 0) {
         $stmt->execute();
 
         if ($stmt->affected_rows == 1) {
+            CreateLog($row['id'], "Alterou a senha");
+
             echo json_encode(array("success" => true));
 
         } else {
@@ -35,4 +38,6 @@ if ($result->num_rows != 0) {
     } else {
         echo json_encode(array("success" => false));
     }
+} else {
+    echo json_encode(array("success" => false));
 }

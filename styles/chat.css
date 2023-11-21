@@ -1,10 +1,24 @@
 main {
-    background-image: url("../assets/bg-texture.png");
-
-    background-size: 100px;
-
     /* 70px é o tamanho da Navbar */
     height: calc(100dvh - 70px);
+}
+
+main::before {
+    content: '';
+    position: absolute;
+    background-image: url("../assets/bg-texture.png");
+    background-size: cover;
+    background-position: center;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 100px;
+    z-index: -1;
+    opacity: .3;
+
+    filter: invert(.5);
 }
 
 #screen {
@@ -13,21 +27,16 @@ main {
     overflow: scroll;
 
     padding: 30px;
+    padding-top: 70px;
     gap: 30px;
-
-    backdrop-filter: contrast(0.1) brightness(1.7);
 }
 
 #screen .date-container {
     display: flex;
     justify-content: center;
-
-    padding-top: 17px;
-
-    border-top: 1px solid #00000030;
 }
 
-#screen .date-container p {
+#screen .date-container small {
     font-weight: bold;
     color: #00000080;
     background-color: #00000010;
@@ -117,4 +126,11 @@ main {
 
 #inputs input {
     padding: 15px;
+}
+
+
+@media (max-width: 992px) {
+    main {
+        height: calc(100dvh - 50px);
+    }
 }

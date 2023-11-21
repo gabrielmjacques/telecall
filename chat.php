@@ -51,8 +51,8 @@ include_once 'components/accessibilityMenu.php';
 
         <?php if (isset($_SESSION["is_master"]) && $_SESSION["is_master"]): ?>
 
-        <div class="row bg-light py-1 pt-2 shadow">
-            <h3 class="text-center"><?php echo $user_chat["fullname"] ?></h3>
+        <div class="col-12 bg-body-tertiary py-1 pt-2 shadow rounded-bottom position-fixed z-1">
+            <h4 class="text-center text-body"><?php echo $user_chat["fullname"] ?></h4>
         </div>
 
         <?php endif;?>

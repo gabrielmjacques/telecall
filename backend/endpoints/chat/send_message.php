@@ -3,6 +3,7 @@
 header('Content-Type: application/json');
 
 include '../../mysql_conn.php';
+include '../../utilitaries.php';
 session_start();
 
 $message = $_POST['message'];
@@ -20,6 +21,8 @@ $stmt_message_insert->bind_param('sii', $message, $target_id, $is_master_msg);
 $stmt_message_insert->execute();
 
 if ($stmt_message_insert->affected_rows > 0) {
+    CreateLog($target_id, "Enviou uma mensagem");
+
     echo json_encode(array('success' => true));
 } else {
     echo json_encode(array('success' => false));

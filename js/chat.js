@@ -11,23 +11,23 @@ function InsertMessages(messages) {
     messages.forEach((message, i) => {
         const date = new Date(message.datatime);
 
-        if (i == 0) {
-            screen_container.append(`
-            <div class="date-container">
-                <p>${date.toLocaleDateString()}</p>
-            </div>
-            `);
-        }
-
+        // Se a data da mensagem for maior que a data da última mensagem, então insere uma linha horizontal
         if (date.getDate() > last_date.getDate()) {
             screen_container.append(`
+            <hr>
+            `);
+        }
+
+        // Se for a primeira mensagem ou a data da mensagem for maior que a data da última mensagem, então insere a data
+        if (i == 0 || date.getDate() > last_date.getDate()) {
+            screen_container.append(`
             <div class="date-container">
-                <p>${date.toLocaleDateString()}</p>
+                <small class="bg-body-secondary text-body">${date.toLocaleDateString()}</small>
             </div>
             `);
-
-            last_date = date;
         }
+
+        last_date = date;
 
         const time = date.toLocaleTimeString().slice(0, 5);
         let author = message.is_master_msg == 1 ? "Telecall" : "";
@@ -62,8 +62,8 @@ function GetAllMessages() {
             }
         })
         .finally(() => {
-            const n = $(document).height();
-            screen_container.animate({ scrollTop: n }, 50);
+            const n = $(screen_container).prop("scrollHeight");
+            screen_container.animate({ scrollTop: n }, 0);
         });
 }
 GetAllMessages();

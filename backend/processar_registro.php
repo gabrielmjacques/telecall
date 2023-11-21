@@ -45,10 +45,14 @@ if ($stmt_check->num_rows() == 1) {
 
     $stmt_insert->execute();
 
+    // Verifica se o usuário não foi inserido
     if ($stmt_insert->affected_rows != 1) {
+        echo "deu ruim <br>";
         var_dump($stmt_insert->error);
         die();
     }
+
+    CreateLog($mysqli->insert_id, "Usuário $fullname cadastrado no sistema");
 
     RedirectTo('success', 'Usuário cadastrado com sucesso! Faça login', '../reglog.php');
 }
