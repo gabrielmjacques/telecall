@@ -197,6 +197,16 @@ include_once '../components/accessibilityMenu.php';
 
                 </section>
 
+                <!-- Container do DER -->
+                <section class="d-none row mt-3 d-flex flex-column align-items-center" id="der_container">
+
+                    <div class="row p-3 justify-content-center overflow-x-scroll p-0 mx-auto" id="chats">
+                        <img src="../assets/dashboard/modelo_img.png" alt="Modelo de Entidade e Relacionamento"
+                            style="width: 500px;">
+                    </div>
+
+                </section>
+
             </div>
 
             </div>

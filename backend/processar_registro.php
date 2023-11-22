@@ -52,7 +52,7 @@ if ($stmt_check->num_rows() == 1) {
         die();
     }
 
-    CreateLog($mysqli->insert_id, "Usuário $fullname cadastrado no sistema");
+    CreateLog($mysqli->insert_id, "Usuário cadastrado no sistema");
 
     RedirectTo('success', 'Usuário cadastrado com sucesso! Faça login', '../reglog.php');
 }

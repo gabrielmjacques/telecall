@@ -55,7 +55,7 @@ include_once 'components/accessibilityMenu.php'; // Inclui o menu de acessibilid
 
                         <!-- CPF -->
                         <div class="col-md-12 form-group mb-3">
-                            <label for="cpf">CPF</label>
+                            <label for="cpf_entry">CPF</label>
                             <input class="form-control" type="text" name="cpf" id="cpf_entry" required>
                         </div>
 

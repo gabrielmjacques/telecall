@@ -3,7 +3,7 @@ include 'backend/utilitaries.php';
 
 session_start();
 
-if (!isset($_SESSION['is_logged']) && !isset($_SESSION['user'])) {
+if (!isset($_SESSION['is_logged']) || !$_SESSION['is_logged'] || !isset($_SESSION['user'])) {
     header('Location: reglog.php?msg=Entre para acessar o chat!');
     exit();
 }

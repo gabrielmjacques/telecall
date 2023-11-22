@@ -85,7 +85,7 @@ include_once 'components/accessibilityMenu.php'; // Inclui o menu de acessibilid
 
                         <!-- Senha -->
                         <div class="form-group mb-5">
-                            <label for="password-entry">Senha</label>
+                            <label for="password_entry">Senha</label>
 
                             <div class="input-group">
                                 <button class="btn btn-outline-secondary" type="button" disabled>
@@ -284,7 +284,7 @@ include_once 'components/accessibilityMenu.php'; // Inclui o menu de acessibilid
                                     <label for="complement_entry">Complemento</label>
                                     <input class="form-control" type="text" name="complement"
                                         pattern="^(?!.*\s$)(?!^\s)[A-Za-zÀ-ÿ\s,.]{0,50}$" id="complement_entry"
-                                        placeholder="Ex: Próximo a travessa 7">
+                                        placeholder="Ex: Casa | Apartamento">
                                 </div>
                             </div>
 

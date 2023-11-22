@@ -1,14 +1,6 @@
 <?php
 session_start();
 include_once 'components/NavBar.php';
-
-if (isset($_SESSION['user'])) {
-    $user = $_SESSION['user'];
-    $is_master = $_SESSION['is_master'];
-} else {
-    $user = null;
-    $is_master = null;
-}
 ?>
 
 <!DOCTYPE html>
@@ -109,7 +101,7 @@ include_once 'components/accessibilityMenu.php';
                     </div>
 
                     <p class="fw-bold opacity-75">
-                        fornece aos usuários informações verificadas sobre chamadas de empresas, exibindo o nome, o
+                        Fornece aos usuários informações verificadas sobre chamadas de empresas, exibindo o nome, o
                         logotipo e o motivo da ligação
                     </p>
                     <div class="arrow"><img class="icons" src="assets/icons/arrow.svg" alt=""></div>
