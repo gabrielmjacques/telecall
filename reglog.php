@@ -155,9 +155,9 @@ include_once 'components/accessibilityMenu.php'; // Inclui o menu de acessibilid
                                     <label for="fullname_entry">Nome Completo</label>
                                     <input class="form-control" type="text" name="fullname" id="fullname_entry"
                                         placeholder="Insira seu nome completo"
-                                        pattern="^(?!.*\s$)(?!^\s)[A-Za-zÀ-ÿ\s]{10,60}$" required>
+                                        pattern="^(?!.*\s$)(?!^\s)[A-Za-zÀ-ÿ\s]{15,80}$" required>
 
-                                    <div class="invalid-feedback">Nome deve ter entre 10 e 60 caracteres</div>
+                                    <div class="invalid-feedback">Campo de nome deve ter de 15 a 80 caracteres</div>
                                 </div>
 
                                 <div class="col-md-4 form-group">
@@ -178,9 +178,9 @@ include_once 'components/accessibilityMenu.php'; // Inclui o menu de acessibilid
                                     <label for="mother_entry">Nome Materno</label>
                                     <input class="form-control" type="text" name="mother" id="mother_entry"
                                         placeholder="Insira o nome completo de sua mãe"
-                                        pattern="^(?!.*\s$)(?!^\s)[A-Za-zÀ-ÿ\s]{10,60}$" required>
+                                        pattern="^(?!.*\s$)(?!^\s)[A-Za-zÀ-ÿ\s]{15,80}$" required>
 
-                                    <div class="invalid-feedback">Nome deve ter entre 10 e 60 caracteres</div>
+                                    <div class="invalid-feedback">Campo de nome deve ter de 15 a 80 caracteres</div>
                                 </div>
                             </div>
 

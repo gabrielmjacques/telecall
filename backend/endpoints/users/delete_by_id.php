@@ -7,6 +7,11 @@ include '../../mysql_conn.php';
 $id = $_GET['id'];
 
 if (isset($id) && $id != '') {
+    // Deletar logs do usuário
+    $stmt_delete = $mysqli->prepare("DELETE FROM logs WHERE user_id = ?");
+    $stmt_delete->bind_param("i", $id);
+    $stmt_delete->execute();
+
     // Deletar usuário
     $stmt_delete = $mysqli->prepare("DELETE FROM users WHERE id = ?");
     $stmt_delete->bind_param("i", $id);

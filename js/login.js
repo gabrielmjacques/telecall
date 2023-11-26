@@ -179,6 +179,7 @@ async function AddCities() {
 
     const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${state}/municipios`);
     const cities = await res.json();
+    console.log(cities);
     city_entry.empty();
 
     cities.forEach(city => {
